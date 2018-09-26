@@ -163,7 +163,7 @@ class GenesysShape{
         ctx.filter = "blur(" + blur + "px)";
         //opacity = Math.floor(255 * opacity);
         //console.log(opacity);
-        ctx.strokeStyle = "rgba(244, 87, 30, " + opacity + " )";
+        ctx.strokeStyle = "rgba(26, 54, 100, " + opacity + " )";
         let radius = 0;
 
         switch(shape){
