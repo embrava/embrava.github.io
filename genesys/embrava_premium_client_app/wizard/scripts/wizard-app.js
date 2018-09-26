@@ -30,7 +30,8 @@ class WizardApp {
         this.language = 'en-us';
 
         // PureCloud app name
-        this.appName = "embrava-premium-app";
+        //this.appName = "embrava-premium-app";
+        this.appName = "embedded-client-app";
 
         this.prefix = appConfig.prefix;
         this.installationData = {
