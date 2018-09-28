@@ -11,5 +11,5 @@ export default {
     "setupPermissionsRequired": ['admin'],
 
     // To be added to names of PureCloud objects created by the wizard
-    "prefix": "EMBRAVA_PREMIUM_APP_",
+    "prefix": "PREMIUM_EXAMPLE_",
 }

@@ -30,8 +30,7 @@ class WizardApp {
         this.language = 'en-us';
 
         // PureCloud app name
-        //this.appName = "embrava-premium-app";
-        this.appName = "embedded-client-app";
+        this.appName = "premium-app-example";
 
         this.prefix = appConfig.prefix;
         this.installationData = {
@@ -42,7 +41,7 @@ class WizardApp {
                     "permissionPolicies": [
                         {
                             "domain": "integration",
-                            "entityName": "embravaPremiumApp",
+                            "entityName": "examplePremiumApp",
                             "actionSet": ["*"],
                             "allowConditions": false
                         }
@@ -52,19 +51,19 @@ class WizardApp {
             "groups": [
                 {
                     "name": "Agents",
-                    "description": "Agents have access to standalone app that syncs presence to Embrava Device.",
+                    "description": "Agents have access to a widget that gives US state information based on caller's number.",
                 },
                 {
                     "name": "Supervisors",
-                    "description": "Supervisors have access to standalone app that syncs presence to Embrava Device.",
+                    "description": "Supervisors have the ability to watch a queue for ACD conversations.",
                 }
             ],
             "appInstances": [
                 {
-                    "name": "Standalone",
+                    "name": "Agent Widget",
                     "url": "https://embrava.github.io/genesys/embrava_premium_client_app/index.html?lang={{pcLangTag}}&environment={{pcEnvironment}}",
-                    "type": "standalone",
-                    "groups": ["Agents", "Supervisors"]
+                    "type": "widget",
+                    "groups": ["Agents"]
                 }
             ]
         };
@@ -84,8 +83,6 @@ class WizardApp {
             var currParam = pairs[i].split('=');
 
             if(currParam[0] === 'langTag') {
-                this.language = currParam[1];
-            } else if (currParam[0] === 'lang' && this.language === null) {
                 this.language = currParam[1];
             } else if(currParam[0] === 'pcEnvironment') {
                 pcEnv = currParam[1];
