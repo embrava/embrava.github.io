@@ -51,18 +51,18 @@ class WizardApp {
             "groups": [
                 {
                     "name": "Agents",
-                    "description": "Agents have access to a widget that gives US state information based on caller's number.",
+                    "description": "Agents have the ability to sync their presence to Embrava Status Lights.",
                 },
                 {
                     "name": "Supervisors",
-                    "description": "Supervisors have the ability to watch a queue for ACD conversations.",
+                    "description": "Supervisors have the ability to sync their presence to Embrava Status Lights.",
                 }
             ],
             "appInstances": [
                 {
-                    "name": "Agent Widget",
-                    "url": "https://embrava.github.io/genesys/embrava_premium_client_app/index.html?lang={{pcLangTag}}&environment={{pcEnvironment}}",
-                    "type": "widget",
+                    "name": "Application",
+                    "url": "https://mypurecloud.github.io/purecloud-premium-app/index.html?lang={{pcLangTag}}&environment={{pcEnvironment}}",
+                    "type": "standalone",
                     "groups": ["Agents"]
                 }
             ]
