@@ -31,7 +31,7 @@ class WizardApp {
 
         // PureCloud app name
         //this.appName = "premium-app-example";
-        this.appName = "embedded-client-app";
+        this.appName = "embrava-status-lights-app";
 
         this.prefix = appConfig.prefix;
         this.installationData = {
