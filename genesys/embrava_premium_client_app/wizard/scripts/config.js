@@ -11,5 +11,5 @@ export default {
     "setupPermissionsRequired": ['admin'],
 
     // To be added to names of PureCloud objects created by the wizard
-    "prefix": "PREMIUM_EXAMPLE_",
+    "prefix": "EMBRAVA_STATUS_LIGHTS_FOR_PURECLOUD_",
 }
