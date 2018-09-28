@@ -41,7 +41,7 @@ class WizardApp {
                     "permissionPolicies": [
                         {
                             "domain": "integration",
-                            "entityName": "examplePremiumApp",
+                            "entityName": "statuslightsForPureCloud",
                             "actionSet": ["*"],
                             "allowConditions": false
                         }
