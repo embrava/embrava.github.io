@@ -4,7 +4,7 @@ export default {
         //'mypurecloud.ie': '8233c135-c488-427c-b301-158b164f2e4d',
         //'mypurecloud.com.au': '173ed139-b09c-4189-b206-97ef3dce4d16'
     },
-    "redirectUri": "https://mypurecloud.github.io/purecloud-premium-app/wizard/index.html",
+    "redirectUri": "https://embrava.github.io/genesys/embrava_premium_client_app/wizard/index.html",
     
     //Permissions required for running the Wizard App
     "setupPermissionsRequired": ['admin'],
