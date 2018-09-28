@@ -1,8 +1,8 @@
 export default {
     clientIDs: {
-        'mypurecloud.com': 'e93d91c6-481d-4238-835d-566c425aab46'
-        //'mypurecloud.ie': '8233c135-c488-427c-b301-158b164f2e4d',
-        //'mypurecloud.com.au': '173ed139-b09c-4189-b206-97ef3dce4d16'
+        'mypurecloud.com': 'e93d91c6-481d-4238-835d-566c425aab46',
+        'mypurecloud.ie': '41c93e94-ba9e-4c5e-bf9a-f9ee0b043420',
+        'mypurecloud.com.au': 'd08762cb-d5fd-4447-88ae-c138a374ce31'
     },
     "redirectUri": "https://embrava.github.io/genesys/embrava_premium_client_app/wizard/index.html",
     

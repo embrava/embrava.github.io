@@ -109,12 +109,6 @@ function sendAccessTokenAsHeartBeat() {
             dataType: "jsonp"
         });
     }
-
-    /*if (accessToken != null) {
-        jQuery.post("http://localhost:9052",accessToken).complete(function(data) {
-            console.log(data); 
-        });
-    }*/
 };
 
 export default clientApp
