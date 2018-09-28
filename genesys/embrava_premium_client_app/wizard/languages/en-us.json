@@ -16,7 +16,7 @@
     "txt-create-group": "2. Create Group",
     "txt-create-group-msg": "Groups will provide filtering to users' access to the app instances.",
     "txt-create-instance": "3. Create Instance",
-    "txt-create-instance-msg": " More instances of the app will be created with different URI endpoints to provide different features of the app.",
+    "txt-create-instance-msg": " An instance of the app will be created to provide the required features of the app.",
     "txt-please-click": "Please click the button to start the installation.",
     "txt-finish-install": "Please wait while we take you to the application.",
     "txt-installed": "Installed",
