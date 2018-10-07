@@ -38,11 +38,11 @@ clientApp.checkForEmbravaConnect = function() {
 };
 
 function successCallback1(data) {
-
+    console.log("successCallback1 data:" + data);
 };
 
 function errorCallback1(data) {
-
+    console.log("errorCallback1 data:" + data);
 };
 
 // Will Authenticate through PureCloud
