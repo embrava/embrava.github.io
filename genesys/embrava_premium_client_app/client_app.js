@@ -22,7 +22,30 @@ var requestParams = new Object();
 var basePath = null;
 var environment = null;
 
-// Will Authenticate through PureCloud and subscribe to User Conversation Notifications
+clientApp.checkForEmbravaConnect = function() {
+    var requestParams1 = new Object();
+    requestParams1.parameter1_Type = "CheckForECPresence";
+    requestParams1.parameter1 = "CheckForECPresence";
+
+    $.ajax({
+        type: "GET",
+        data: JSON.stringify(requestParams1),
+        url: "http://localhost:9052",
+        dataType: "jsonp",
+        success: successCallback1,
+        error: errorCallback1
+    });
+};
+
+function successCallback1(data) {
+
+};
+
+function errorCallback1(data) {
+
+};
+
+// Will Authenticate through PureCloud
 clientApp.setup = function(pcEnv, langTag, html){
     let clientId = clientIDs[pcEnv] || clientIDs['mypurecloud.com'];
     clientApp.langTag = langTag;
@@ -86,7 +109,7 @@ function sleep(milliseconds) {
             break;
         }
     }
-}
+};
 
 function sendAccessTokenAsHeartBeat() {
     console.log("Access Token:" + accessToken);
@@ -101,7 +124,6 @@ function sendAccessTokenAsHeartBeat() {
 		requestParams.parameter3_Type = "Environment";
         requestParams.parameter3 = environment;
 		
-		requestParams
         $.ajax({
             type: "GET",
             data: JSON.stringify(requestParams),
