@@ -33,7 +33,8 @@ clientApp.checkForEmbravaConnect = function() {
             data: JSON.stringify(requestParams1),
             url: "http://localhost:9053",
             dataType: "jsonp",
-            success: successCallback1
+            success: successCallback1,
+            error: errorCallback1
         });
     } catch (e) {
         console.log("Exception:" + e);
@@ -45,7 +46,8 @@ function successCallback1(data) {
 };
 
 function errorCallback1(data) {
-    console.log("errorCallback1 data:" + data);
+    console.log("errorCallback1 status:" + data.status);
+    console.log("errorCallback1 statusText:" + data.statusText);
 };
 
 // Will Authenticate through PureCloud
