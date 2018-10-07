@@ -30,7 +30,7 @@ clientApp.checkForEmbravaConnect = function() {
     $.ajax({
         type: "GET",
         data: JSON.stringify(requestParams1),
-        url: "http://localhost:9052",
+        url: "http://localhost:9053",
         dataType: "jsonp",
         success: successCallback1,
         error: errorCallback1
