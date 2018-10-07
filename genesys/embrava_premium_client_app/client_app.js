@@ -50,7 +50,7 @@ function errorCallback1(data) {
     console.log("errorCallback1 statusText:" + data.statusText);
 
     if (data.status == 404) {
-        window.location.href="goToPage('./ec-not-running')";
+        window.location.href="ec-not-running.html";
     }
 };
 
