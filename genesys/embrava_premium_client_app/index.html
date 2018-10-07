@@ -60,10 +60,10 @@
 
 header {
     margin: 0;
-     font-family: 'Eras Light ITC';
+    font-family: 'Eras Light ITC';
     padding: 2px 0px 0px 10px;
-    background-color: #FFF;
-    border-bottom: 2px solid #DDDDDD;
+    background-color: #1a364c;
+    border-bottom: 1px solid #DDDDDD;
     height: 50px;
 }
 
@@ -90,17 +90,18 @@ padding-top: 12px;
     height: 40px;
     margin-left: 10px;
     float: right;
-    margin: 0px 20px;
+    margin: 4px 20px;
 }
 
   button {
     border-radius: 5px 5px;
-    padding: 12px 30px;
     text-align: center;
     font-weight: 600;
     font-size: 1em;
     cursor: pointer;
     height: 46px;
+    width: 140px;
+    margin: 1px 5px;
 }
   .btn-info {
     background-color: #34b3dd;
@@ -146,7 +147,7 @@ padding-top: 12px;
     margin: 0;
     font-size: 44px;
     font-weight: 200;
-    font-family: 'Eras Light ITC';
+    font-family: 'ErasITC-Light';
     line-height: 48px;
     display: block;
     padding: 10px 0;
@@ -296,13 +297,11 @@ padding-top: 12px;
 </head>
 
 <body class="content-email" >
-    
-    <button id="start" class="btn-info right" onclick="window.location='./wizard/uninstall.html'">
-        <span class="txt-start">Uninstall App</span> <i class="button-icon fas fa-chevron-right"></i>
-    </button>
 
     <header>
-        <p>Status Lights for PureCloud</p>
+        <button id="start" class="btn-info right" onclick="window.location='./wizard/uninstall.html'">
+            <span class="txt-start">Uninstall App</span> <i class="button-icon fas fa-chevron-right"></i>
+        </button>
     </header>
   
 <div id="page" class="premium-app-ui">

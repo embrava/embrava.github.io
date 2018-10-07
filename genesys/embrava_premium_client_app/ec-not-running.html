@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="no-js">
 
 <head>
@@ -51,7 +51,14 @@
   font-style: normal;
 }
 
-
+header {
+    margin: 0;
+    font-family: 'Eras Light ITC';
+    padding: 2px 0px 0px 10px;
+    background-color: #1a364c;
+    border-bottom: 1px solid #DDDDDD;
+    height: 50px;
+}
 
 body {
    font-family: 'ErasITC-Medium';
@@ -83,6 +90,40 @@ text-align: right;
 padding-right: 70px;
 padding-top: 12px;
   }
+  .footer img {
+    height: 40px;
+    margin-left: 10px;
+    float: right;
+    margin: 4px 20px;
+}
+    button {
+    border-radius: 5px 5px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    height: 46px;
+    width: 140px;
+    margin: 1px 5px;
+}
+  .btn-info {
+    background-color: #34b3dd;
+    color: white;
+    border: 1px solid #34b3dd;
+    border-bottom: 3px solid #24a3cd;
+}
+
+.btn-info:hover {
+    background-color: #25c0df;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
   .group-btn a.embrava-link{
   }
   .premium-app-ui .caption p a{
@@ -311,6 +352,12 @@ padding-top: 12px;
 </head>
 <body class="content-email" >
 
+    <header>
+        <button id="start" class="btn-info right" onclick="window.location='./wizard/uninstall.html'">
+            <span class="txt-start">Uninstall App</span> <i class="button-icon fas fa-chevron-right"></i>
+        </button>
+    </header>
+
 <div id="page" class="premium-app-ui">
   <div class="hero-image"  style="background-image: url(img/new-app.jpg);">
     <div class="caption">
@@ -344,9 +391,9 @@ padding-top: 12px;
     <p>3.  Refresh this page.<span>For help, visit: <a href="https://embrava.com/pages/support-call">www.embrava.com/support</a></span></p>
 
   </div>
-  <div class="footer">
-    <p>embrava</p>
-  </div>
+    <div class="footer">
+        <img src="logo.png" alt="Logo">
+    </div>
 </div>
 
 </body>
