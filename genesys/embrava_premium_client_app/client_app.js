@@ -48,6 +48,10 @@ function successCallback1(data) {
 function errorCallback1(data) {
     console.log("errorCallback1 status:" + data.status);
     console.log("errorCallback1 statusText:" + data.statusText);
+
+    if (data.status == 404) {
+        window.location.href="goToPage('./ec-not-running')";
+    }
 };
 
 // Will Authenticate through PureCloud
