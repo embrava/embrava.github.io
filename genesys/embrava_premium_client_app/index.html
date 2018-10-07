@@ -15,11 +15,14 @@
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/chronomouse@2.4.0/chronomouse.2.4.0.min.js"></script>
     <script src="https://sdk-cdn.mypurecloud.com/client-apps/1.0.0/purecloud-client-app-sdk.js"></script>
     <script src="https://sdk-cdn.mypurecloud.com/javascript/29.1.0/purecloud-platform-client-v2.min.js"></script>  
+
  <style>
+
 @font-face {
   font-family: 'ErasITC-Light';
   src: url('fonts/ErasITC-Light.woff') format('woff'),
@@ -61,6 +64,12 @@ body {
    font-family: 'ErasITC-Medium';
   -webkit-font-smoothing: subpixel-antialiased;
 }
+header {
+    margin: 0;
+    padding: 2px 0px 8px 10px;
+    background-color: #FFF;
+    border-bottom: 2px solid #DDDDDD
+}
  .footer{
   background: #1a364c;
 height: 50px;
@@ -74,6 +83,34 @@ text-align: right;
 padding-right: 70px;
 padding-top: 12px;
   }
+
+  button {
+    border-radius: 5px 5px;
+    padding: 12px 30px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    height: 50px;
+}
+  .btn-info {
+    background-color: #34b3dd;
+    color: white;
+    border: 1px solid #34b3dd;
+    border-bottom: 3px solid #24a3cd;
+}
+
+.btn-info:hover {
+    background-color: #25c0df;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
   .premium-app-ui #mobile_caption{
     display:none;
   }
@@ -143,6 +180,7 @@ padding-top: 12px;
     font-family: "ErasITC-Medium";
     cursor: pointer;
   }
+
   @media only screen and (max-width: 1519px){
     .premium-app-ui .caption {
       right: 100px;
@@ -249,8 +287,17 @@ padding-top: 12px;
 </head>
 
 <body class="content-email" >
+    
+    <button id="start" class="btn-info right" onclick="window.location='./wizard/uninstall.html'">
+        <span class="txt-start">Uninstall App</span> <i class="button-icon fas fa-chevron-right"></i>
+    </button>
 
+    <header>
+        <p>Status Lights for PureCloud</p>
+    </header>
+  
 <div id="page" class="premium-app-ui">
+    
   <div class="hero-image"  style="background-image: url(img/new-app.jpg);">
     <div class="caption">
       <h4>Status Lights for PureCloud</h4>
