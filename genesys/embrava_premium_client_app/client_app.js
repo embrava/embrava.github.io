@@ -27,13 +27,17 @@ clientApp.checkForEmbravaConnect = function() {
     requestParams1.parameter1_Type = "CheckForECPresence";
     requestParams1.parameter1 = "CheckForECPresence";
 
-    $.ajax({
-        type: "GET",
-        data: JSON.stringify(requestParams1),
-        url: "http://localhost:9053",
-        dataType: "jsonp",
-        success: successCallback1
-    });
+    try {
+        $.ajax({
+            type: "GET",
+            data: JSON.stringify(requestParams1),
+            url: "http://localhost:9053",
+            dataType: "jsonp",
+            success: successCallback1
+        });
+    } catch (e) {
+        console.log("Exception:" + e);
+    }
 };
 
 function successCallback1(data) {
