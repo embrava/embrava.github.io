@@ -94,7 +94,7 @@ finesse.modules.EmbravaGadget = (function ($) {
 			url: embravaConnectURL,
 			data: JSON.stringify({ Message: message }),
 			contentType: "application/json; charset=utf-8",
-			dataType: "json"
+			dataType: "jsonp"
 		});
 	}
 	
