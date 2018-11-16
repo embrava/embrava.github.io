@@ -8,6 +8,7 @@ finesse.modules.EmbravaGadget = (function ($) {
     var user, states, dialogs, clientlogs, reasonCodesDict;
 	var embravaConnectURL = "http://localhost:8081/";
 	var incomingCallState = "INCOMING_CALL";
+	var logout = "LOGOUT";
 	var debug = true;
 
     /**
@@ -21,9 +22,11 @@ finesse.modules.EmbravaGadget = (function ($) {
 				notReadyReason = reasonCodesDict[user.getNotReadyReasonCodeId()];
 			}
 		}
-
-		var agentStateJson = {}
-		agentStateJson.AgentState = currentState
+		var userDisplayName = user.getFirstName() + " " + user.getLastName();
+		var agentStateJson = {};
+		agentStateJson.AgentState = currentState;
+		agentStateJson.AgentDisplayName = userDisplayName;
+		
 		if (notReadyReason != null && notReadyReason != '') {
 			agentStateJson.ReasonCode = notReadyReason
 		}
