@@ -14,7 +14,7 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Application Files\ClickOnceSample5_1_0_0_0\ClickOnceSample5.exe.manifest" size="5234">
+    <dependentAssembly dependencyType="install" codebase="Application Files\ClickOnceSample5_1_0_0_0\ClickOnceSample5.exe.manifest" size="3916">
       <assemblyIdentity name="ClickOnceSample5.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
     </dependentAssembly>
   </dependency>
