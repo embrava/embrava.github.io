@@ -44,13 +44,6 @@
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ClickOnceSample3.exe" size="7168">
       <assemblyIdentity name="ClickOnceSample3" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9dSVXC/0ypVZjpYI+J/yzL3NB5WTElY1DvQwpUkaeMo=</dsig:DigestValue>
-      </hash>
     </dependentAssembly>
   </dependency>
   <file name="ClickOnceSample3.exe.config" size="189" />
