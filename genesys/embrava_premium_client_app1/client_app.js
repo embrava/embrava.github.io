@@ -56,7 +56,7 @@ function errorCallback1(data) {
 
 // Will Authenticate through PureCloud
 clientApp.setup = function(pcEnv, langTag, html){
-    let clientId = clientIDs[pcEnv] || clientIDs['mypurecloud.com'];
+    let clientId = clientIDs[pcEnv];
     clientApp.langTag = langTag;
 
     // Authenticate via PureCloud
