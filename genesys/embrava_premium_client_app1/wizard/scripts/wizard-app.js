@@ -13,6 +13,9 @@ class WizardApp {
     constructor(langTag, pcEnv){
         // Reference to the PureCloud App (Client App SDK)
 
+        this.pcEnv = pcEnv;
+        this.langTag = langTag;
+
         var currentUrl = window.location.href;
 
         if (pcEnv == null) {
@@ -38,9 +41,6 @@ class WizardApp {
         }
 
         this.pcApp = null;
-
-        this.pcEnv = pcEnv;
-        this.langTag = langTag;
 
         // PureCloud Javascript SDK clients
         this.platformClient = require('platformClient');
