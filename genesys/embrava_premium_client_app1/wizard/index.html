@@ -124,8 +124,8 @@
         // Check if there is an existing installation and redirect to manage.html if so
         return myApp.isExisting(); 
         }).then((exists) => {
-            if(exists){
-                goToPage('../index');
+            if (exists) {
+                goToPage('../index', this.langTag, this.pcEnv);
             }else{
                 // Get the user information to display on the screen
                 return myApp.getUserDetails(); 
