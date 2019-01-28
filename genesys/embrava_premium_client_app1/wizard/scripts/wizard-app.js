@@ -16,7 +16,25 @@ class WizardApp {
         var currentUrl = window.location.href;
 
         if (pcEnv == null) {
-            var str1= window.location.hash.substring(1);
+            var hashString = window.location.hash.substring(1);
+            const pairs = hashString.split('&');
+            var pcEnvInState = null;  
+
+            for (var i = 0; i < pairs.length; i++) {
+                var currParam = pairs[i].split('=');
+
+                if (currParam[0] === 'state') {
+                    pcEnvInState = currParam[1];
+                }
+            }
+
+            if (pcEnvInState != null) {
+                this.pcEnv = pcEnvInState.split('%253D')[1];
+            }
+        }
+
+        if (langTag == null) {
+            this.langTag = 'en-us';
         }
 
         this.pcApp = null;
