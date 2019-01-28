@@ -15,6 +15,10 @@ class WizardApp {
 
         var currentUrl = window.location.href;
 
+        if (pcEnv == null) {
+            var str1= window.location.href.hash.substring(1);
+        }
+
         this.pcApp = null;
 
         this.pcEnv = pcEnv;
@@ -148,7 +152,7 @@ class WizardApp {
 
         return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment], 
                                 this.redirectUri, 
-                                {state: ('pcEnvironment=' + this.pcApp.pcEnvironment)});
+                                {state: ('environment=' + this.pcApp.pcEnvironment)});
     }
 
     /**
