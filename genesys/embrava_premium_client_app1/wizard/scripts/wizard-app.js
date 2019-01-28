@@ -9,13 +9,25 @@ const $ = window.$;
  * WizardApp class that handles everything in the App.
  */
 class WizardApp {
-    constructor(){
+
+    constructor(langTag, pcEnv){
         // Reference to the PureCloud App (Client App SDK)
         this.pcApp = null;
+
+        this.pcEnv = pcEnv;
+        this.langTag = langTag;
 
         // PureCloud Javascript SDK clients
         this.platformClient = require('platformClient');
         this.purecloudClient = this.platformClient.ApiClient.instance;
+
+        if (pcEnv === 'mypurecloud.com') {
+            this.purecloudClient.setEnvironment('mypurecloud.com');
+        } else if (pcEnv === 'mypurecloud.ie') {
+            this.purecloudClient.setEnvironment('mypurecloud.ie');
+        } else if (pcEnv === 'mypurecloud.com.au') {
+            this.purecloudClient.setEnvironment('mypurecloud.com.au');
+        }
 
         this.purecloudClient.setPersistSettings(true, 'premium_app');
         this.redirectUri = appConfig.redirectUri;
@@ -79,7 +91,8 @@ class WizardApp {
         // https://github.com/MyPureCloud/client-app-sdk
         const queryString = window.location.search.substring(1);
         const pairs = queryString.split('&');
-        let pcEnv = null;   
+        //let pcEnv = this.pcEnv;  
+        
         for (var i = 0; i < pairs.length; i++)
         {
             var currParam = pairs[i].split('=');
@@ -87,14 +100,14 @@ class WizardApp {
             if(currParam[0] === 'langTag') {
                 this.language = currParam[1];
             } else if(currParam[0] === 'pcEnvironment') {
-                pcEnv = currParam[1];
+                this.pcEnv = currParam[1];
             } else if(currParam[0] === 'environment' && pcEnv === null) {
-                pcEnv = currParam[1];
+                this.pcEnv = currParam[1];
             }
         }
 
-        if(pcEnv){
-            this.pcApp = new window.purecloud.apps.ClientApp({pcEnvironment: pcEnv});
+        if (this.pcEnv){
+            this.pcApp = new window.purecloud.apps.ClientApp({ pcEnvironment: this.pcEnv});
         }else{
             // Use default PureCloud region
             this.pcApp = new window.purecloud.apps.ClientApp();
@@ -130,11 +143,9 @@ class WizardApp {
             this.purecloudClient.setEnvironment('mypurecloud.com.au');
         }
 
-        var data = this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment],
-                                                           this.redirectUri,
-                                                           { state: ('pcEnvironment=' + this.pcApp.pcEnvironment) });
-
-        return data;
+        return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment], 
+                                this.redirectUri, 
+                                {state: ('pcEnvironment=' + this.pcApp.pcEnvironment)});
     }
 
     /**
