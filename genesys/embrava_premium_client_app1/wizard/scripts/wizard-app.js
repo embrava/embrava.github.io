@@ -122,6 +122,13 @@ class WizardApp {
      */
     _pureCloudAuthenticate() {
         // Authenticate through PureCloud
+        if (this.pcApp.pcEnvironment === 'mypurecloud.com') {
+            this.purecloudClient.setEnvironment('mypurecloud.com');
+        } else if (this.pcApp.pcEnvironment === 'mypurecloud.ie') {
+            this.purecloudClient.setEnvironment('mypurecloud.ie');
+        } else if (this.pcApp.pcEnvironment === 'mypurecloud.com.au') {
+            this.purecloudClient.setEnvironment('mypurecloud.com.au');
+        }
         return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment], 
                                 this.redirectUri, 
                                 {state: ('pcEnvironment=' + this.pcApp.pcEnvironment)});

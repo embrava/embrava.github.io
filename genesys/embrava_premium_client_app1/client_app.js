@@ -61,6 +61,13 @@ clientApp.setup = function(pcEnv, langTag, html){
 
     // Authenticate via PureCloud
     client.setPersistSettings(true);
+    if (pcEnv === 'mypurecloud.com') {
+        client.setEnvironment('mypurecloud.com');
+    } else if (pcEnv === 'mypurecloud.ie') {
+        client.setEnvironment('mypurecloud.ie');
+    } else if (pcEnv === 'mypurecloud.com.au') {
+        client.setEnvironment('mypurecloud.com.au');
+    }
     client.loginImplicitGrant(clientId, redirectUri + html, { state: "state" })
     .then(data => {
         console.log(data);
