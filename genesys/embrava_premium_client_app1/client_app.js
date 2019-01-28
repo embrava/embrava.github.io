@@ -59,6 +59,10 @@ clientApp.setup = function(pcEnv, langTag, html){
     let clientId = clientIDs[pcEnv];
     clientApp.langTag = langTag;
 
+    if (clientId === undefined) {
+        return;
+    }
+
     // Authenticate via PureCloud
     client.setPersistSettings(true);
     if (pcEnv === 'mypurecloud.com') {
