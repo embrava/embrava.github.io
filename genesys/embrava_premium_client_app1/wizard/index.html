@@ -125,7 +125,7 @@
         return myApp.isExisting(); 
         }).then((exists) => {
             if (exists) {
-                goToPage('../index', this.langTag, this.pcEnv);
+                goToPage('../index', myApp.langTag, myApp.pcEnv);
             }else{
                 // Get the user information to display on the screen
                 return myApp.getUserDetails(); 
