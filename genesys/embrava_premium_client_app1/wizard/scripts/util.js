@@ -18,7 +18,7 @@ var goToPage = function goToPage(page) {
     var urlParameterPcEnvironment = getUrlParameter('environment');
 
     var pageUrl = urlParameterLangTag ? page + '.html?langTag=' + urlParameterLangTag : page + '.html?langTag=en-us';
-    pageUrl = pageUrl + '&' + urlParameterPcEnvironment ? 'environment=' + urlParameterPcEnvironment : 'environment=mypurecloud.com';
+    pageUrl = pageUrl + '&' + (urlParameterPcEnvironment ? 'environment=' + urlParameterPcEnvironment : 'environment=mypurecloud.com');
 
     window.location = pageUrl;
 }
