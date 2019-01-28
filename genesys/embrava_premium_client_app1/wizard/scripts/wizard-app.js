@@ -16,6 +16,7 @@ class WizardApp {
         // PureCloud Javascript SDK clients
         this.platformClient = require('platformClient');
         this.purecloudClient = this.platformClient.ApiClient.instance;
+
         this.purecloudClient.setPersistSettings(true, 'premium_app');
         this.redirectUri = appConfig.redirectUri;
 

@@ -9,7 +9,7 @@ let clientApp = {};
 const platformClient = require('platformClient');
 const client = platformClient.ApiClient.instance;
 // const redirectUri = "http://localhost:3000/";
-const redirectUri = "https://embrava.github.io/genesys/embrava_premium_client_app/";
+const redirectUri = "https://embrava.github.io/genesys/embrava_premium_client_app1/";
 
 // API instances
 const usersApi = new platformClient.UsersApi();
