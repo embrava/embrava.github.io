@@ -101,7 +101,7 @@ class WizardApp {
                 this.language = currParam[1];
             } else if(currParam[0] === 'pcEnvironment') {
                 this.pcEnv = currParam[1];
-            } else if(currParam[0] === 'environment' && pcEnv === null) {
+            } else if (currParam[0] === 'environment' && this.pcEnv === null) {
                 this.pcEnv = currParam[1];
             }
         }
