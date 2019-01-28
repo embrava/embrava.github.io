@@ -16,7 +16,7 @@ class WizardApp {
         var currentUrl = window.location.href;
 
         if (pcEnv == null) {
-            var str1= window.location.href.hash.substring(1);
+            var str1= window.location.hash.substring(1);
         }
 
         this.pcApp = null;
