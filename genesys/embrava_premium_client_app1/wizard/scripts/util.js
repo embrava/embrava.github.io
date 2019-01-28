@@ -13,8 +13,12 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
-var goToPage = function goToPage(page){
-    window.location = getUrlParameter('langTag') ? 
-        page + '.html?langTag=' + getUrlParameter('langTag') : 
-        page + '.html?langTag=en-us'
+var goToPage = function goToPage(page) {
+    var urlParameterLangTag = getUrlParameter('langTag');
+    var urlParameterPcEnvironment = getUrlParameter('environment');
+
+    var pageUrl = urlParameterLangTag ? page + '.html?langTag=' + urlParameterLangTag : page + '.html?langTag=en-us';
+    pageUrl = pageUrl + '&' + urlParameterPcEnvironment ? 'environment=' + urlParameterPcEnvironment : 'environment=mypurecloud.com';
+
+    window.location = pageUrl;
 }
