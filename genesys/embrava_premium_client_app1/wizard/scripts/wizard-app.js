@@ -12,6 +12,9 @@ class WizardApp {
 
     constructor(langTag, pcEnv){
         // Reference to the PureCloud App (Client App SDK)
+
+        var currentUrl = window.location.href;
+
         this.pcApp = null;
 
         this.pcEnv = pcEnv;
