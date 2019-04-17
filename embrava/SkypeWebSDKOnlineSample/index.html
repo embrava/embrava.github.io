@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>SomeDummySite</title>
+</head>
+<body>
+    <script>
+        // redirect to Org ID if there is no token in the URL
+        if (!location.hash) {
+            location.assign('https://login.windows.net/common/oauth2/authorize?response_type=token' +
+                '&client_id=e129a76c-918e-4efe-9b90-7c3a8ec1bbd7' +
+                '&redirect_uri=' + location.href +
+                '&resource=https://webdir.online.lync.com');
+        }
+
+        // show the UI if the user has signed in
+        if (/^#access_token=/.test(location.hash)) {
+            location.assign('http://localhost/skype-web-sdk-samples/SkypeWebSDKOnlineSample/UI/'); 
+        }
+    </script>
+</body>
+</html>
