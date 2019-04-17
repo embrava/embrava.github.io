@@ -6,10 +6,7 @@
     <script>
         // redirect to Org ID if there is no token in the URL
         if (!location.hash) {
-            location.assign('https://login.windows.net/common/oauth2/authorize?response_type=token' +
-                '&client_id=e129a76c-918e-4efe-9b90-7c3a8ec1bbd7' +
-                '&redirect_uri=' + location.href +
-                '&resource=https://webdir.online.lync.com');
+            location.assign('https://webdir1a.online.lync.com/WebTicket/oauthtoken');
         }
 
         // show the UI if the user has signed in
