@@ -13,7 +13,18 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
-var goToPage = function goToPage(page){
+var goToPage = function goToPage(page) {
+    var langTag = getUrlParameter('langTag');
+    if (langTag == undefined || langTag == null || langTag == "") {
+        langTag = 'en-us';
+    }
+
+    var pcEnvironment = getUrlParameter('environment');
+    if (pcEnvironment == undefined || pcEnvironment == null || pcEnvironment == "") {
+        pcEnvironment = getUrlParameter('pcEnvironment');
+    }
+
+    window.location = page + '.html?langTag=' + langTag + '&environment=' + pcEnvironment;
     window.location = getUrlParameter('langTag') ? 
         page + '.html?langTag=' + getUrlParameter('langTag') : 
         page + '.html?langTag=en-us'
