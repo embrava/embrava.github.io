@@ -1,5 +1,5 @@
 export default {
-    'mypurecloud.com': 'ea4ad669-c893-4a52-93e6-d23f28487506',
-    'mypurecloud.ie': '96e1c1b3-bbd5-43c2-bb88-11552884001b',
-    'mypurecloud.com.au': 'adddd327-0027-4714-b807-d61d8cad7a1b'
+    'mypurecloud.com': 'bab69ff9-7e90-4765-9237-daeb4956134c',
+    'mypurecloud.ie': '77b877d9-31cc-45b3-aec0-4cbf9a10f201',
+    'mypurecloud.com.au': '5783fd83-07c9-4f91-83b0-7ecc4d452dca'
 }
