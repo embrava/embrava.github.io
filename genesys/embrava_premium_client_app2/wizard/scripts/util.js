@@ -14,7 +14,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 var goToPage = function goToPage(page, environment) {
-    var langTag = getUrlParameter('langTag');
+    /*var langTag = getUrlParameter('langTag');
     if (langTag == undefined || langTag == null || langTag == "") {
         langTag = 'en-us';
     }
@@ -24,5 +24,8 @@ var goToPage = function goToPage(page, environment) {
         pcEnvironment = getUrlParameter('pcEnvironment');
     }
 
-    window.location = page + '.html?langTag=' + langTag + '&environment=' + pcEnvironment;
+    window.location = page + '.html?langTag=' + langTag + '&environment=' + pcEnvironment;*/
+
+    var pageUrl = page + '.html?' + environment;
+    window.location = pageUrl;
 }
