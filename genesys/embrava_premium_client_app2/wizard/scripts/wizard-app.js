@@ -78,7 +78,7 @@ class WizardApp {
         // https://github.com/MyPureCloud/client-app-sdk
         var queryString = window.location.search.substring(1);
         if (!queryString) {
-            queryString = window.location.hash;
+            queryString = decodeURIComponent(window.location.hash);
         }
         const pairs = queryString.split('&');
         let pcEnv = null;   
