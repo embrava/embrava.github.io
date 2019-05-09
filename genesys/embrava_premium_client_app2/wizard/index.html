@@ -112,7 +112,6 @@
         myApp.start()
         // Check Product Availability and display appropriate message
             .then(() => {
-            var environment = myApp.environment;
             return myApp.validateProductAvailability();
         })
         .then((isAvailable) => {

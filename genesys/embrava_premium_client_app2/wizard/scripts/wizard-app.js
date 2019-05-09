@@ -133,7 +133,8 @@ class WizardApp {
         //var redirectUrl = this.redirectUri + "?environment=" + this.pcApp.pcEnvironment;
         //this.redirectUri = redirectUrl;
         return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment],
-            this.redirectUri, { state: ('&environment=' + this.pcApp.pcEnvironment) });
+            this.redirectUri, { state: ('&langTag=' + this.language + '&environment=' + this.pcApp.pcEnvironment)
+    });
     }
 
     /**
