@@ -25,7 +25,4 @@ var goToPage = function goToPage(page) {
     }
 
     window.location = page + '.html?langTag=' + langTag + '&environment=' + pcEnvironment;
-    window.location = getUrlParameter('langTag') ? 
-        page + '.html?langTag=' + getUrlParameter('langTag') : 
-        page + '.html?langTag=en-us'
 }
