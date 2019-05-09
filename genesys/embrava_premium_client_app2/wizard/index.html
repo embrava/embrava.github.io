@@ -139,7 +139,7 @@
                     $("#username").text(user.name);
 
                     //var querystring = "&langTag=en-us&environment=mypurecloud.ie";
-                    querystring = encodeURIComponent(queryString);
+                    var querystring = encodeURIComponent(queryString);
                     var s = '<p id="querystring">' + querystring + '</p>';
                     var queryStringHtmlObject = document.createElement('p');
                     queryStringHtmlObject.innerHTML = s;
