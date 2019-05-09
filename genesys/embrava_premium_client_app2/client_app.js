@@ -9,7 +9,7 @@ let clientApp = {};
 const platformClient = require('platformClient');
 const client = platformClient.ApiClient.instance;
 // const redirectUri = "http://localhost:3000/";
-const redirectUri = "https://embrava.github.io/genesys/embrava_premium_client_app1/";
+const redirectUri = "https://embrava.github.io/genesys/embrava_premium_client_app/";
 
 // API instances
 const usersApi = new platformClient.UsersApi();
@@ -56,18 +56,11 @@ function errorCallback1(data) {
 
 // Will Authenticate through PureCloud
 clientApp.setup = function(pcEnv, langTag, html){
-    let clientId = clientIDs[pcEnv];
+    let clientId = clientIDs[pcEnv] || clientIDs['mypurecloud.com'];
     clientApp.langTag = langTag;
 
     // Authenticate via PureCloud
     client.setPersistSettings(true);
-    if (pcEnv === 'mypurecloud.com') {
-        client.setEnvironment('mypurecloud.com');
-    } else if (pcEnv === 'mypurecloud.ie') {
-        client.setEnvironment('mypurecloud.ie');
-    } else if (pcEnv === 'mypurecloud.com.au') {
-        client.setEnvironment('mypurecloud.com.au');
-    }
     client.loginImplicitGrant(clientId, redirectUri + html, { state: "state" })
     .then(data => {
         console.log(data);
