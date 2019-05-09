@@ -13,7 +13,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
-var goToPage = function goToPage(page) {
+var goToPage = function goToPage(page, environment) {
     var langTag = getUrlParameter('langTag');
     if (langTag == undefined || langTag == null || langTag == "") {
         langTag = 'en-us';
