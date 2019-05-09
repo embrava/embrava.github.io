@@ -89,12 +89,10 @@
 
         // Initiate the App
         let myApp = new WizardApp();
-        myApp.start();
-        var environment = myApp.environment;
-
-
+        myApp.start()
         // Check Product Availability and display appropriate message
-        .then(() => {
+            .then(() => {
+            var environment = myApp.environment;
             return myApp.validateProductAvailability();
         })
         .then((isAvailable) => {
