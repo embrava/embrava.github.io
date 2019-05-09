@@ -76,7 +76,7 @@ class WizardApp {
     _setupClientApp(){    
         // Snippet from URLInterpolation example: 
         // https://github.com/MyPureCloud/client-app-sdk
-        const queryString = window.location.search.substring(1);
+        var queryString = window.location.search.substring(1);
         if (!queryString) {
             queryString = window.location.hash;
         }
