@@ -137,7 +137,17 @@
                     $("#loading").addClass("hidden");
                     $(".title").removeClass("hidden");
                     $("#username").text(user.name);
-                    document.createElement("querystring");
+
+                    //var querystring = "&langTag=en-us&environment=mypurecloud.ie";
+                    querystring = encodeURIComponent(queryString);
+                    var s = '<p id="querystring">' + querystring + '</p>';
+                    var queryStringHtmlObject = document.createElement('p');
+                    queryStringHtmlObject.innerHTML = s;
+                    document.body.appendChild(queryStringHtmlObject);
+
+                    var querystringOutput = document.getElementById("querystring").innerHTML;
+                    querystringOutput = decodeURIComponent(querystringOutput);
+                    alert(querystringOutput);
                 }
             })
 
