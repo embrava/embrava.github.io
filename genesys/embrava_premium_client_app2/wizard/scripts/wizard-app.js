@@ -121,6 +121,7 @@ class WizardApp {
      */
     _pureCloudAuthenticate() {
         // Authenticate through PureCloud
+        this.purecloudClient.setEnvironment(this.pcApp.pcEnvironment);
         return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment], 
                                 this.redirectUri, 
                                 {state: ('pcEnvironment=' + this.pcApp.pcEnvironment)});
