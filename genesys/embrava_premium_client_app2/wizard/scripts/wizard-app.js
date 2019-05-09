@@ -79,6 +79,7 @@ class WizardApp {
         var queryString = window.location.search.substring(1);
         if (!queryString) {
             queryString = decodeURIComponent(window.location.hash);
+            queryString = decodeURIComponent(queryString);
         }
         const pairs = queryString.split('&');
         let pcEnv = null;   
@@ -128,7 +129,7 @@ class WizardApp {
         //var redirectUrl = this.redirectUri + "?environment=" + this.pcApp.pcEnvironment;
         //this.redirectUri = redirectUrl;
         return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment],
-            this.redirectUri, { state: ('environment=' + this.pcApp.pcEnvironment) });
+            this.redirectUri, { state: ('&environment=' + this.pcApp.pcEnvironment) });
     }
 
     /**
