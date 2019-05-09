@@ -78,7 +78,9 @@
     <!-- Client Instances and PureCloud API will be encapsulated in the wizardApp module -->
     <script>
         function goToInstallPage() {
-            var querystring = document.getElementById("querystring");
+            var querystring = document.getElementById("querystring").innerHTML;
+            querystring = decodeURIComponent(querystring);
+            alert(querystring);
             goToPage('./install', querystring);
         }
     </script>
@@ -140,14 +142,14 @@
 
                     //var querystring = "&langTag=en-us&environment=mypurecloud.ie";
                     var querystring = encodeURIComponent(queryString);
-                    var s = '<p id="querystring">' + querystring + '</p>';
+                    var s = '<p id="querystring" hidden>' + querystring + '</p>';
                     var queryStringHtmlObject = document.createElement('p');
                     queryStringHtmlObject.innerHTML = s;
                     document.body.appendChild(queryStringHtmlObject);
 
-                    var querystringOutput = document.getElementById("querystring").innerHTML;
+                    /*var querystringOutput = document.getElementById("querystring").innerHTML;
                     querystringOutput = decodeURIComponent(querystringOutput);
-                    alert(querystringOutput);
+                    alert(querystringOutput);*/
                 }
             })
 
