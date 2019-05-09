@@ -77,6 +77,9 @@ class WizardApp {
         // Snippet from URLInterpolation example: 
         // https://github.com/MyPureCloud/client-app-sdk
         const queryString = window.location.search.substring(1);
+        if (!queryString) {
+            queryString = window.location.hash;
+        }
         const pairs = queryString.split('&');
         let pcEnv = null;   
         for (var i = 0; i < pairs.length; i++)
