@@ -35,6 +35,7 @@ class WizardApp {
         this.appName = "premium-app-embrava";
 
         this.prefix = appConfig.prefix;
+        this.prefixAppName = appConfig.prefixAppName;
         this.installationData = {
             "roles": [
                 {
@@ -335,7 +336,7 @@ class WizardApp {
             .then((data) => {
                 resolve(data.entities
                     .filter(entity => entity.name
-                        .startsWith(this.prefix)));
+                        .startsWith(this.prefixAppName)));
             })
             .catch(err => reject(err));
         });

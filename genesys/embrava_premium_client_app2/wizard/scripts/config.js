@@ -12,4 +12,5 @@ export default {
     // To be added to names of PureCloud objects created by the wizard
     //"prefix": "STATUS_LIGHTS_FOR_PURECLOUD_",
     "prefix": "Status Lights for PureCloud ",
+    "prefixAppName": "Status Lights",
 }
