@@ -144,7 +144,29 @@
                 .then(() => {
                     setTimeout(() => {
                         $.LoadingOverlay("hide");
-                        goToPage('./finish');
+
+                        var queryString = window.location.search.substring(1);
+                        if (!queryString) {
+                            queryString = decodeURIComponent(window.location.hash);
+                            queryString = decodeURIComponent(queryString);
+                        }
+                        var pairs = queryString.split('&');
+                        var environment = '';
+                        var language = '';
+                        for (var i = 0; i < pairs.length; i++) {
+                            var currParam = pairs[i].split('=');
+
+                            if (currParam[0] === 'langTag') {
+                                language = currParam[1];
+                            } else if (currParam[0] === 'pcEnvironment') {
+                                environment = currParam[1];
+                            } else if (currParam[0] === 'environment') {
+                                environment = currParam[1];
+                            }
+                        }
+                        queryString = 'langTag=' + language + '&environment=' + environment;
+
+                        goToPage('./finish', queryString);
                     }, 1800);
                 });
             });

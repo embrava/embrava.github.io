@@ -18,6 +18,7 @@ class WizardApp {
         this.purecloudClient = this.platformClient.ApiClient.instance;
         this.purecloudClient.setPersistSettings(true, 'premium_app');
         this.redirectUri = appConfig.redirectUri;
+        this.environment = '';
 
         // PureCloud API instances
         this.usersApi = new this.platformClient.UsersApi();
@@ -34,6 +35,7 @@ class WizardApp {
         this.appName = "premium-app-embrava";
 
         this.prefix = appConfig.prefix;
+        this.prefixAppName = appConfig.prefixAppName;
         this.installationData = {
             "roles": [
                 {
@@ -76,7 +78,11 @@ class WizardApp {
     _setupClientApp(){    
         // Snippet from URLInterpolation example: 
         // https://github.com/MyPureCloud/client-app-sdk
-        const queryString = window.location.search.substring(1);
+        var queryString = window.location.search.substring(1);
+        if (!queryString) {
+            queryString = decodeURIComponent(window.location.hash);
+            queryString = decodeURIComponent(queryString);
+        }
         const pairs = queryString.split('&');
         let pcEnv = null;   
         for (var i = 0; i < pairs.length; i++)
@@ -120,10 +126,16 @@ class WizardApp {
      * @return {Promise}
      */
     _pureCloudAuthenticate() {
+
+
         // Authenticate through PureCloud
-        return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment], 
-                                this.redirectUri, 
-                                {state: ('pcEnvironment=' + this.pcApp.pcEnvironment)});
+        this.purecloudClient.setEnvironment(this.pcApp.pcEnvironment);
+        this.environment = this.pcApp.pcEnvironment;
+        //var redirectUrl = this.redirectUri + "?environment=" + this.pcApp.pcEnvironment;
+        //this.redirectUri = redirectUrl;
+        return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment],
+            this.redirectUri, { state: ('&langTag=' + this.language + '&environment=' + this.pcApp.pcEnvironment)
+    });
     }
 
     /**
@@ -324,7 +336,7 @@ class WizardApp {
             .then((data) => {
                 resolve(data.entities
                     .filter(entity => entity.name
-                        .startsWith(this.prefix)));
+                        .startsWith(this.prefixAppName)));
             })
             .catch(err => reject(err));
         });
