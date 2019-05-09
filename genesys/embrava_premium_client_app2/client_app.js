@@ -63,7 +63,7 @@ clientApp.setup = function(pcEnv, langTag, html){
     // Authenticate via PureCloud
     client.setEnvironment(pcEnv);
     client.setPersistSettings(true);
-    client.loginImplicitGrant(clientId, redirectUri + html, { state: ('pcEnvironment=' + pcEnv) })
+    client.loginImplicitGrant(clientId, redirectUri + html, { state: ('&langTag=' + langTag + '&environment=' + pcEnv) })
     .then(data => {
         console.log(data);
         
