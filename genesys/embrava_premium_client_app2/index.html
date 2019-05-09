@@ -329,7 +329,7 @@ padding-top: 12px;
             var querystring = document.getElementById("querystring").innerHTML;
             querystring = decodeURIComponent(querystring);
             alert(querystring);
-            goToPage('./wizard/uninstall', querystring);
+            window.location = './wizard/uninstall.html' + querystring;
         }
     </script>
 
@@ -361,7 +361,7 @@ padding-top: 12px;
         }
 
         var querystring = "langTag=" + langTag + "&environment=" + pcEnv;
-        querystring = encodeURIComponent(queryString);
+        querystring = encodeURIComponent(querystring);
         var s = '<p id="querystring" hidden>' + querystring + '</p>';
         var queryStringHtmlObject = document.createElement('p');
         queryStringHtmlObject.innerHTML = s;
