@@ -18,6 +18,7 @@ class WizardApp {
         this.purecloudClient = this.platformClient.ApiClient.instance;
         this.purecloudClient.setPersistSettings(true, 'premium_app');
         this.redirectUri = appConfig.redirectUri;
+        this.environment = '';
 
         // PureCloud API instances
         this.usersApi = new this.platformClient.UsersApi();
@@ -124,8 +125,11 @@ class WizardApp {
      * @return {Promise}
      */
     _pureCloudAuthenticate() {
+
+
         // Authenticate through PureCloud
         this.purecloudClient.setEnvironment(this.pcApp.pcEnvironment);
+        this.environment = this.pcApp.pcEnvironment;
         //var redirectUrl = this.redirectUri + "?environment=" + this.pcApp.pcEnvironment;
         //this.redirectUri = redirectUrl;
         return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment],
