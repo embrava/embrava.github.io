@@ -89,6 +89,7 @@
 
         // Initiate the App
         let myApp = new WizardApp();
+        var queryString = window.location.search.substring(1);
         var environment = "";
         myApp.start()
         // Check Product Availability and display appropriate message
@@ -107,7 +108,7 @@
         return myApp.isExisting(); 
         }).then((exists) => {
             if(exists){
-                goToPage('../index', environment);
+                goToPage('../index', queryString);
             }else{
                 // Get the user information to display on the screen
                 return myApp.getUserDetails(); 
