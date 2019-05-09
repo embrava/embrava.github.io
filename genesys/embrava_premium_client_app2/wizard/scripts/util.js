@@ -13,7 +13,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
-var goToPage = function goToPage(page, environment) {
+var goToPage = function goToPage(page, queryString) {
     /*var langTag = getUrlParameter('langTag');
     if (langTag == undefined || langTag == null || langTag == "") {
         langTag = 'en-us';
@@ -26,6 +26,6 @@ var goToPage = function goToPage(page, environment) {
 
     window.location = page + '.html?langTag=' + langTag + '&environment=' + pcEnvironment;*/
 
-    var pageUrl = page + '.html?' + environment;
+    var pageUrl = page + '.html?' + queryString;
     window.location = pageUrl;
 }
