@@ -21,8 +21,10 @@ var accessToken = null;
 var requestParams = new Object();
 var basePath = null;
 var environment = null;
+var querystring = null;
 
-clientApp.checkForEmbravaConnect = function() {
+clientApp.checkForEmbravaConnect = function (querystringarg) {
+    querystring = querystringarg;
     var requestParams1 = new Object();
     requestParams1.parameter1_Type = "CheckForECPresence";
     requestParams1.parameter1 = "CheckForECPresence";
@@ -50,7 +52,7 @@ function errorCallback1(data) {
     console.log("errorCallback1 statusText:" + data.statusText);
 
     if (data.status == 404) {
-        window.location.href="ec-not-running.html";
+        window.location.href = "ec-not-running.html?" + querystring;
     }
 };
 
