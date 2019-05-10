@@ -109,7 +109,8 @@ class WizardApp {
 
         // Get the language context file and assign it to the app
         return new Promise((resolve, reject) => {
-            let fileUri = './languages/' + this.language + '.json';
+            var language = this.language.toLowerCase();
+            let fileUri = './languages/' + language + '.json';
             $.getJSON(fileUri)
             .done(data => {
                 this.displayPageText(data);
