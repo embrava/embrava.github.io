@@ -408,7 +408,7 @@ padding-top: 12px;
 
     <script type="module">
         var queryString = window.location.search.substring(1);
-        querystring = encodeURIComponent(queryString);
+        var querystring = encodeURIComponent(queryString);
         var s = '<p id="querystring" hidden>' + querystring + '</p>';
         var queryStringHtmlObject = document.createElement('p');
         queryStringHtmlObject.innerHTML = s;
