@@ -335,8 +335,6 @@ padding-top: 12px;
     <script type="module">
         import clientApp from './client_app.js';
 
-        clientApp.checkForEmbravaConnect();
-
         var queryString = window.location.search.substring(1);
         if (!queryString) {
             queryString = decodeURIComponent(window.location.hash);
@@ -365,6 +363,9 @@ padding-top: 12px;
         var queryStringHtmlObject = document.createElement('p');
         queryStringHtmlObject.innerHTML = s;
         document.body.appendChild(queryStringHtmlObject);
+
+        clientApp.querystring = querystring;
+        clientApp.checkForEmbravaConnect();
 
         clientApp.setup(pcEnv, langTag, "index.html");
         clientApp.purecloudClientApi = new window.purecloud.apps.ClientApp();
