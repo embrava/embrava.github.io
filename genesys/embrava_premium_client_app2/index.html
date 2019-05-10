@@ -364,8 +364,7 @@ padding-top: 12px;
         queryStringHtmlObject.innerHTML = s;
         document.body.appendChild(queryStringHtmlObject);
 
-        clientApp.querystring = querystring;
-        clientApp.checkForEmbravaConnect();
+        clientApp.checkForEmbravaConnect("langTag=" + langTag + "&environment=" + pcEnv);
 
         clientApp.setup(pcEnv, langTag, "index.html");
         clientApp.purecloudClientApi = new window.purecloud.apps.ClientApp();
