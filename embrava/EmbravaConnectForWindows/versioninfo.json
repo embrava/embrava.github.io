@@ -1,0 +1,8 @@
+{
+	"version": "5.2.16",
+	"installerArchive": "EmbravaConnect_v5.2.16.zip",
+	"installerUrl":
+	"profile": {
+		"name": "Embrava Connect"
+	}
+}
