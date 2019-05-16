@@ -1,7 +1,6 @@
 {
 	"version": "5.2.16",
-	"installerArchive": "EmbravaConnect_v5.2.16.zip",
-	"installerUrl":
+	"installerUrl": "https://embrava.github.io/embrava/EmbravaConnectForWindows/EmbravaConnect_v5.2.16.zip",
 	"profile": {
 		"name": "Embrava Connect"
 	}
