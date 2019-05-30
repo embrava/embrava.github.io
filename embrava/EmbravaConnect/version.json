@@ -1,6 +1,6 @@
 {
-	"version": "4.1.4",
-	"packageName": "EmbravaConnectForMac_v4.1.4.pkg",
+	"version": "4.1.5",
+	"packageName": "EmbravaConnectForMac_v4.1.5.pkg",
 	"releaseNotes": "<!DOCTYPE html><html><body><ul><li>Fixed bugs in SFB Online</li><li>Fixed other bugs</li></ul></body></html>",
 	"profile": {
 		"name": "embrava connect"
