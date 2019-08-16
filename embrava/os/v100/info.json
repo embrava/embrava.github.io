@@ -1,1 +1,1 @@
-{"Update":"firmware",{"type":"Bootloader","version":"1.0.0","name":"NRF_Bootloader_c.bin","size":57997}}
+{"Update":"firmware", "files":[{"type":"Bootloader","version":"1.0.0","name":"NRF_Bootloader_c.bin","size":57997}]}
