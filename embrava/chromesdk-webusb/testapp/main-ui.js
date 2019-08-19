@@ -44,7 +44,8 @@
 	var DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S = "Blynclight Wireless (BLWRLS40)";
 	var DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED = "Embrava Embedded";
 	var DEVICE_NAME_BLYNCLIGHT_MINI_30S = "Blynclight Mini (BLMINI30)";
-	var DEVICE_NAME_BLYNCLIGHT_MINI_40S = "Blynclight Mini (BLMINI40)";
+    var DEVICE_NAME_BLYNCLIGHT_MINI_40S = "Blynclight Mini (BLMINI40)";
+    var DEVICE_NAME_BLYNCLIGHT_MINI_41S = "Blynclight Mini (BLMINI41)";
 
 	let finalDevices = []; // has properties 'deviceName' a string value and 'device' an USB device object;                
 	let selectedDeviceInfo; // USB device object
@@ -136,7 +137,7 @@
 	    selectedDeviceInfo = finalDevices[ui.deviceSelector.selectedIndex];
 
 	    if (deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
-            deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S ||  
+            deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||  
             deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
 				
 	        enableIOControlsForLightForBlyncUSB30_30S_Devices(true);
@@ -202,7 +203,8 @@
 	    bySelectedFlashSpeed = ui.flashSpeedSelector.selectedIndex + 1;
 	    if (deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || 
             deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S ||
-            deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S ||  deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+            deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+            deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
 	        await SelectLightFlashSpeed(selectedDeviceInfo, bySelectedFlashSpeed);
 	    }
 	};
@@ -233,7 +235,7 @@
 	var onMusicSelectionChanged = async function() {
 	    bySelectedMusic = ui.musicSelector.selectedIndex + 1;
 	    if (deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
-            deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || 
+            deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || 
             deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
 	        if (ui.playMusic.checked == true) {
 	            await StopMusicPlay(selectedDeviceInfo);
@@ -253,7 +255,7 @@
 	    byVolumeLevel = ui.volumeRange.value;
 	    bySelectedMusic = ui.musicSelector.selectedIndex + 1;
 	    if (deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
-            deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || 
+            deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || 
             deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
 	        if (ui.playMusic.checked == true) {
 	            await StopMusicPlay(selectedDeviceInfo);

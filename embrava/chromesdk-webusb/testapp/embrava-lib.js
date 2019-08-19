@@ -7,6 +7,7 @@ var DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S = "Blynclight Wireless (BLWRLS40)";
 var DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED = "Embrava Embedded";
 var DEVICE_NAME_BLYNCLIGHT_MINI_30S = "Blynclight Mini (BLMINI30)";
 var DEVICE_NAME_BLYNCLIGHT_MINI_40S = "Blynclight Mini (BLMINI40)";
+var DEVICE_NAME_BLYNCLIGHT_MINI_41S = "Blynclight Mini (BLMINI41)";
 
 // Command Buffer for Blynclight Devices
 var abyBlyncUsb30ReportBuffer = new Uint8Array(8);
@@ -88,7 +89,7 @@ async function SetRedColorBrightnessLevel(device, byRedLevel) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         byRedValue = byRedLevel;
         await SendBlyncUSB30ControlCommand(device, byRedValue, byGreenValue, byBlueValue, byLightControl, byMusicControl_1, byMusicControl_2);
     } 
@@ -102,7 +103,7 @@ async function SetGreenColorBrightnessLevel(device, byGreenLevel) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         byGreenValue = byGreenLevel;
         await SendBlyncUSB30ControlCommand(device, byRedValue, byGreenValue, byBlueValue, byLightControl, byMusicControl_1, byMusicControl_2);
     } 
@@ -116,7 +117,7 @@ async function SetBlueColorBrightnessLevel(device, byBlueLevel) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         byBlueValue = byBlueLevel;
         await SendBlyncUSB30ControlCommand(device, byRedValue, byGreenValue, byBlueValue, byLightControl, byMusicControl_1, byMusicControl_2);
     }
@@ -134,7 +135,7 @@ async function TurnOnV30Light(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         byLightControl &= ~byMaskLightOnOff;
         await SendBlyncUSB30ControlCommand(device, byRedValue, byGreenValue, byBlueValue, byLightControl, byMusicControl_1, byMusicControl_2);
     }
@@ -153,7 +154,7 @@ async function TurnOffV30Light(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         byLightControl |= byMaskLightOnOff;
         await SendBlyncUSB30ControlCommand(device, byRedValue, byGreenValue, byBlueValue, byLightControl, byMusicControl_1, byMusicControl_2);
     } 
@@ -208,9 +209,11 @@ async function EnumerateDevices() {
                 deviceName = DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED;
             } else if ((device.vendorId == 0x0E53 && device.productId == 0x2519) || (device.vendorId == 0x2C0D && device.productId == 0x0003)) {
                 deviceName = DEVICE_NAME_BLYNCLIGHT_MINI_30S;
-            } else if ((device.vendorId == 0x2C0D && device.productId == 0x000A) || (device.vendorId == 0x2C0D && device.productId == 0x0011)) {
+            } else if (device.vendorId == 0x2C0D && device.productId == 0x000A) {
                 deviceName = DEVICE_NAME_BLYNCLIGHT_MINI_40S;
-            }
+            } else if (device.vendorId == 0x2C0D && device.productId == 0x0011) {
+				deviceName = DEVICE_NAME_BLYNCLIGHT_MINI_41S;
+			}
 
             if (deviceName !== null) {
 
@@ -242,7 +245,8 @@ async function ResetLight(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S ||  device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         await TurnOffV30Light(device);
     } 
     console.log("ResetLight Exit");
@@ -263,8 +267,10 @@ async function TurnOnRedLight(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || 
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
-        if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+            device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
             await TurnOnRGBLights(device, 128, 0, 0);
         } else {
             await TurnOnRGBLights(device, 255, 0, 0);
@@ -289,7 +295,8 @@ async function TurnOnGreenLight(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         await TurnOnRGBLights(device, 0, 150, 0);	        
     }
 
@@ -311,7 +318,8 @@ async function TurnOnBlueLight(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || 
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         await TurnOnRGBLights(device, 0, 0, 150);
     }
 
@@ -333,8 +341,9 @@ async function TurnOnYellowLight(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
-        if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
             await TurnOnRGBLights(device, 90, 60, 0);
         } else if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
             await TurnOnRGBLights(device, 100, 60, 0);
@@ -361,7 +370,8 @@ async function TurnOnPurpleLight(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || 
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
             await TurnOnRGBLights(device, 68, 0, 128);
         } else {
@@ -387,7 +397,8 @@ async function TurnOnWhiteLight(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || 
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         await TurnOnRGBLights(device, 255, 125, 50);
     }
 
@@ -409,7 +420,8 @@ async function TurnOnCyanLight(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || 
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         await TurnOnRGBLights(device, 0, 255, 255);
     }
 
@@ -431,8 +443,10 @@ async function TurnOnOrangeLight(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || 
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
-        if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+            device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
             await TurnOnRGBLights(device, 90, 20, 0);
         } else if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
             await TurnOnRGBLights(device, 100, 15, 0);
@@ -461,7 +475,8 @@ async function TurnOnRGBLights(device, byRedLevel, byGreenLevel, byBlueLevel) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || 
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
         await TurnOnV30Light(device);
         await SetRedColorBrightnessLevel(device, byRedLevel);
         await SetGreenColorBrightnessLevel(device, byGreenLevel);
@@ -482,7 +497,8 @@ async function SetLightDim(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
 
         byLightControl |= byMaskLightDimControl;
         await SendBlyncUSB30ControlCommand(device, byRedValue, byGreenValue, byBlueValue, byLightControl, byMusicControl_1, byMusicControl_2);
@@ -503,7 +519,7 @@ async function ClearLightDim(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
 
         byLightControl &= ~byMaskLightDimControl;
         await SendBlyncUSB30ControlCommand(device, byRedValue, byGreenValue, byBlueValue, byLightControl, byMusicControl_1, byMusicControl_2);
@@ -530,7 +546,7 @@ async function SelectLightFlashSpeed(device, bySelectedFlashSpeed) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
 
         byLightControl &= ~byMaskLightFlashSpeed;
         byLightControl |= ((bySelectedFlashSpeed & 0x0F) << 3);
@@ -551,7 +567,7 @@ async function StartLightFlash(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
 
         byLightControl |= byMaskLightFlashOnOff;
         await SendBlyncUSB30ControlCommand(device, byRedValue, byGreenValue, byBlueValue, byLightControl, byMusicControl_1, byMusicControl_2);
@@ -570,7 +586,7 @@ async function StopLightFlash(device) {
     if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED ||
-        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
 
         byLightControl &= ~byMaskLightFlashOnOff;
         await SendBlyncUSB30ControlCommand(device, byRedValue, byGreenValue, byBlueValue, byLightControl, byMusicControl_1, byMusicControl_2);
@@ -593,7 +609,8 @@ async function StopLightFlash(device) {
 async function SelectMusicToPlay(device, bySelectedMusic) {
     console.log("SelectMusicToPlay Entry");
 
-    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || 
+    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
         byMusicControl_1 &= ~byMaskMusicSelect;
@@ -617,7 +634,8 @@ async function SelectMusicToPlay(device, bySelectedMusic) {
 async function StartMusicPlay(device) {
     console.log("StartMusicPlay Entry");
 
-    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || 
+    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
         byMusicControl_1 |= byMaskMusicOnOff;
@@ -640,7 +658,8 @@ async function StartMusicPlay(device) {
 async function StopMusicPlay(device) {
     console.log("StopMusicPlay Entry");
 
-    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || 
+    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
         byMusicControl_1 &= ~byMaskMusicOnOff;
@@ -663,7 +682,8 @@ async function StopMusicPlay(device) {
 async function SetMusicRepeat(device) {
     console.log("SetMusicRepeat Entry");
 
-    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S ||
+    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
         byMusicControl_1 |= byMaskMusicRepeatOnOff;
@@ -686,7 +706,8 @@ async function SetMusicRepeat(device) {
 async function ClearMusicRepeat(device) {
     console.log("ClearMusicRepeat Entry");
 
-    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || 
+    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
         byMusicControl_1 &= ~byMaskMusicRepeatOnOff;
@@ -712,7 +733,8 @@ async function ClearMusicRepeat(device) {
 async function SetMusicVolume(device, byVolumeLevel) {
     console.log("SetMusicVolume Entry");
 
-    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || 
+    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
         byMusicControl_2 &= ~byMaskVolumeControl;
@@ -737,7 +759,8 @@ async function SetMusicVolume(device, byVolumeLevel) {
 async function SetVolumeMute(device) {
     console.log("SetVolumeMute Entry");
 
-    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S ||
+    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
+        device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
         byMusicControl_2 |= byMaskMute;
@@ -753,7 +776,7 @@ async function SetVolumeMute(device) {
 async function ClearVolumeMute(device) {
     console.log("ClearVolumeMute Entry");
 
-    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S ||
+    if (device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S ||
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
         device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || device.deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
         byMusicControl_2 &= ~byMaskMute;
