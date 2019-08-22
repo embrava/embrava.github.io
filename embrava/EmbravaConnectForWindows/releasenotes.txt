@@ -1,5 +1,4 @@
-Embrava Connect v5.2.18
+Embrava Connect v5.2.25
 
-1. Teams integration stability fixes done
-
-2. Genesys PureCloud Premium App - German language support added
+1. Improved License Management
+2. Genesys PureCloud SDK updates
