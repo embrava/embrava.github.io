@@ -8,6 +8,12 @@ To deploy the update of Plantronics Status Indicator for Windows, clone this rep
 
 Then you can edit the files in the local repository on your pc and commit the changes to the remote repository (github server).
 
+
+Plantronics Status Indicator for Windows Autoupdate deployment folder on the local repository:
+-----------------------------------------------------------------------------------------------
+
+embrava.github.io\embrava\EmbravaConnectForWindows
+
 Auto Update Information format:
 --------------------------------
 

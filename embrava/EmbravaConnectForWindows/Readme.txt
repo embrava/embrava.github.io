@@ -8,6 +8,12 @@ To deploy the update of Embrava Connect for Windows, clone this repository on yo
 
 Then you can edit the files in the local repository on your pc and commit the changes to the remote repository (github server).
 
+Embrava Connect Autoupdate deployment folder on the local repository:
+----------------------------------------------------------------------
+
+embrava.github.io\embrava\EmbravaConnectForWindows
+
+
 Auto Update Information format:
 --------------------------------
 
