@@ -4,7 +4,7 @@ Github Repository:
 -------------------
 This folder is a part of the repository: https://github.com/embrava/embrava.github.io.git
 
-To deploy the update of Embrava Connect for Windows clone this repository on your PC using the github account credentials.
+To deploy the update of Embrava Connect for Windows, clone this repository on your PC using the github account credentials.
 
 Then you can edit the files in the local repository on your pc and commit the changes to the remote repository (github server).
 
@@ -36,8 +36,7 @@ Steps for deploying the update:
 The zip file will have the files - EmbravaConnect.msi and Readme.txt. Don't edit the contents of the zip file or 
 don't edit the name of the installer zip package.
 
-2. Host the zip file (EmbravaConnect_va.b.c.zip) on any file hosting server to get the https download url. When this url is entered on the browser then
-it should download the zip file and should not display any html page on the browser. To put simply, when this url is activated
+2. Host the zip file (EmbravaConnect_va.b.c.zip) on any file hosting server to get the http / https download url. When this url is activated
 by browser then this zip file would be downloaded. This is the direct url of the installer zip package.
 
 3. Bitly tracking. We can use the bitly converted download url for this installer package. Use the direct url of the installer zip package 
@@ -50,7 +49,9 @@ direct url of the installer zip package in the installerUrl filed of the updatei
 
 6. Update the releaseDate field of the updateinfo.json.
 
-7. Commit the changes to the repository.
+7. Update the releasenotes.txt file in this folder.
+
+8. Commit the changes to the repository.
 
 This finishes the update deployment process.
 
