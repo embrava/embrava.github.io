@@ -12,7 +12,7 @@ Then you can edit the files in the local repository on your pc and commit the ch
 Plantronics Status Indicator for Windows Autoupdate deployment folder on the local repository:
 -----------------------------------------------------------------------------------------------
 
-embrava.github.io\embrava\EmbravaConnectForWindows
+embrava.github.io\embrava\PlantronicsStatusIndicatorForWindows
 
 Auto Update Information format:
 --------------------------------
