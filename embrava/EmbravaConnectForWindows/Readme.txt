@@ -1,5 +1,16 @@
 This is the auto update information folder for Embrava Connect for Windows Software.
 
+Github Repository:
+-------------------
+This folder is a part of the repository: https://github.com/embrava/embrava.github.io.git
+
+To deploy the update of Embrava Connect for Windows clone this repository on your PC using the github account credentials.
+
+Then you can edit the files in the local repository on your pc and commit the changes to the remote repository (github server).
+
+Auto Update Information format:
+--------------------------------
+
 The auto update information has been defined in the json format in a file called updateinfo.json.
 
 On each update its enough to edit the contents of releasenotes.txt and updateinfo.json.
@@ -7,18 +18,19 @@ On each update its enough to edit the contents of releasenotes.txt and updateinf
 Contents of the updateinfo.json:
 
 {
-	"version": "5.2.18",
+	"version": "5.2.26",
 	"installerUrl": "http://bit.ly/33RingN",
-	"releaseDate": "22.July.2019"
+	"releaseDate": "06.September.2019"
 }
 
 version: This should be in the format a.b.c. Example as shown above 5.2.8. Enclose the string in double quotes.
 installerUrl: This is the http / https url - which can be a direct url or bitly converted url of the Embrava Connect installer zip package.
 releaseDate: This is the date on which this update is being released.
 
-Do not edit the file names this auto update information folder.
+Do not edit the file names or delte the files in this auto update information folder.
 
 Steps for deploying the update:
+--------------------------------
 
 1. Get the EmbravaConnect_va.b.c.zip installer zip package from the dev team. The autoupdate supports zip package only.
 The zip file will have the files - EmbravaConnect.msi and Readme.txt. Don't edit the contents of the zip file or 
@@ -39,3 +51,7 @@ direct url of the installer zip package in the installerUrl filed of the updatei
 6. Update the releaseDate field of the updateinfo.json.
 
 7. Commit the changes to the repository.
+
+This finishes the update deployment process.
+
+
