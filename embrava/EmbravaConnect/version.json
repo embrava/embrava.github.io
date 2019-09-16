@@ -1,7 +1,7 @@
 {
-	"version": "4.1.5",
-	"packageName": "EmbravaConnectForMac_v4.1.5.pkg",
-	"releaseNotes": "<!DOCTYPE html><html><body><ul><li>Testing auto update</li><li>Fixed other bugs</li></ul></body></html>",
+	"version": "4.1.7",
+	"packageName": "EmbravaConnectForMac_v4.1.7.pkg",
+	"releaseNotes": "<!DOCTYPE html><html><body><ul><li>Fixed IVES integration</li><li>Updated light colors</li><li>Fixed other bugs</li></ul></body></html>",
 	"profile": {
 		"name": "embrava connect"
 	}
