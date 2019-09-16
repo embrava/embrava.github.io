@@ -1,6 +1,6 @@
 {
-	"version": "4.1.6",
-	"packageName": "EmbravaConnectForMac_v4.1.6.pkg",
+	"version": "4.1.5",
+	"packageName": "EmbravaConnectForMac_v4.1.5.pkg",
 	"releaseNotes": "<!DOCTYPE html><html><body><ul><li>Testing auto update</li><li>Fixed other bugs</li></ul></body></html>",
 	"profile": {
 		"name": "embrava connect"
