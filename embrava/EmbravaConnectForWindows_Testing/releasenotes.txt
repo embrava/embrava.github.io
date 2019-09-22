@@ -1,0 +1,4 @@
+Embrava Connect v5.2.25
+
+1. Improved License Management
+2. Genesys PureCloud SDK updates
