@@ -1,4 +1,4 @@
 Embrava Connect v5.2.28
 
-1. Improved License Management
-2. Genesys PureCloud SDK updates
+1. Localization support for French
+2. General fixes added

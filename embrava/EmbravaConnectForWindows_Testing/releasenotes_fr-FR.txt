@@ -1,4 +1,4 @@
 Embrava Connect v5.2.28
 
-1. Gestion de licence améliorée
-2. Mises à jour de Genesys PureCloud SDK
+1. Aide à la localisation en français
+2. Corrections générales ajoutées
