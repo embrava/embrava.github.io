@@ -1,0 +1,6 @@
+Embrava Connect v5.2.31
+
+1. Prise en charge du dernier SDK RingCentral.Net de RingCentral
+2. Prise en charge du dernier SDK PureCloud Platform de Genesys
+3. Assistance pour la récupération des paramètres de configuration à partir du registre pour RingCentral Connection
+4. Meilleure gestion de la connexion au compte RingCentral en utilisant le jeton d'actualisation pour empêcher plusieurs utilisateurs de se connecter.
