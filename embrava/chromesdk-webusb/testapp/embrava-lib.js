@@ -70,7 +70,7 @@ async function SendBlyncUSB30ControlCommand(deviceInfo, byRedValue, byGreenValue
         var result = await device.controlTransferOut( 
             {
                 requestType: 'class',
-                recipient: 'interface',
+                recipient: 'device',
                 request: 0x09,
                 value: 0x0200,
                 index: 0x0000
