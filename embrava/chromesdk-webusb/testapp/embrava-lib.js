@@ -56,7 +56,7 @@ async function SendBlyncUSB30ControlCommand(deviceInfo, byRedValue, byGreenValue
             await device.selectConfiguration(1);
         }
 
-		await device.claimInterface(0);
+		//await device.claimInterface(0);
 		
         abyBlyncUsb30ReportBuffer[0] = byRedValue;
         abyBlyncUsb30ReportBuffer[1] = byBlueValue;
