@@ -56,7 +56,7 @@ async function SendBlyncUSB30ControlCommand(deviceInfo, byRedValue, byGreenValue
             await device.selectConfiguration(1);
         }
 
-		//await device.claimInterface(0);
+		await device.claimInterface(0);
 		
         abyBlyncUsb30ReportBuffer[0] = byRedValue;
         abyBlyncUsb30ReportBuffer[1] = byBlueValue;
@@ -70,7 +70,7 @@ async function SendBlyncUSB30ControlCommand(deviceInfo, byRedValue, byGreenValue
         var result = await device.controlTransferOut( 
             {
                 requestType: 'class',
-                recipient: 'device',
+                recipient: 'interface',
                 request: 0x09,
                 value: 0x0200,
                 index: 0x0000
