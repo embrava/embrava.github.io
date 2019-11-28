@@ -1,6 +1,3 @@
-Embrava Connect v5.2.31
+Embrava Connect v5.2.32
 
-1. Supporting the latest RingCentral.Net SDK from RingCentral
-2. Supporting the latest PureCloud Platform SDK from Genesys
-3. Support for retrieving the configuration settings from registry for RingCentral Connection
-4. Better management of RingCentral account connection using the refresh token to prevent multiple user sign-ins.
+1. Fix for Microsoft Teams On-Call alert
