@@ -323,14 +323,6 @@ padding-top: 12px;
         </div>
     </div>
 
-    <script>
-        function goToUninstallPage() {
-            var querystring = document.getElementById("querystring").innerHTML;
-            querystring = decodeURIComponent(querystring);
-            window.location = './wizard/uninstall.html?' + querystring;
-        }
-    </script>
-
     <script type="module">
         var queryString = window.location.search.substring(1);
 		do {
