@@ -340,7 +340,7 @@ padding-top: 12px;
 				var authorizationCode = queryString.split("code=").pop().split("&state")[0];	
 
 				// Check for the state value = authreqEC
-				var state = queryString.split("state=").pop()[1];							
+				var state = queryString.split("state=")[1];							
 				alert("state: " + state);				
 	
 				// Post to Oauth.Access to get the access token
