@@ -373,7 +373,7 @@ padding-top: 12px;
 							 if (stringState == "authreqEC") {
 								// This request could have been triggered by Embrava Connect, so redirect to the url
 								// https://embrava.github.io/slack/auth/?access_token=obj.access_token&user_id=obj.user_id&team_id=obj.team_id
-								window.location.href = "https://embrava.github.io/slack/auth/?access_token=obj.access_token&user_id=obj.user_id&team_id=obj.team_id";
+								window.location.href = "https://embrava.github.io/slack/auth/?access_token=" + obj.access_token + "&user_id=" + obj.user_id + "&team_id=" + obj.team_id;
 							 }
 							 
 							 document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
