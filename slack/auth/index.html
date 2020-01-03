@@ -334,7 +334,7 @@ padding-top: 12px;
     <script type="module">
         var queryString = window.location.search.substring(1);
 		do {
-			var result = queryString.includes("code", 0);
+			var result = queryString.includes("code=", 0);
 			if (result == true) {
 				// Get the authorization code from the querystring
 				var authorizationCode = queryString.split("code=").pop().split('&state')[0];				
