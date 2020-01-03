@@ -361,7 +361,6 @@ padding-top: 12px;
 							// Pass this access token, user id and team id values to a reirect uri so that embrava connect can get it.
 							// Get the state value from the html object, Check for the state value = authreqEC
 							 var stringState = document.getElementById("stringState").innerHTML;
-							 alert("state: " + stringState);
 							 
 							 if (stringState == "authreqEC") {
 								// This request could have been triggered by Embrava Connect, so redirect to the url
