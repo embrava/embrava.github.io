@@ -336,6 +336,9 @@ padding-top: 12px;
 		do {
 			var result = queryString.includes("code", 0);
 			if (result == true) {
+				// Get the authorization code from the querystring
+				var authorizationCode = queryString.substring(queryString.lastIndexOf("code=") + 1, queryString.lastIndexOf("&state"));
+				
 				document.getElementById("authorizationResult").innerHTML = "Authorization Successful. You can close this window now.";
 				break;
 			}	
