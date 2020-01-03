@@ -315,7 +315,7 @@ padding-top: 12px;
             <div class="caption">
                 <h4>Embrava Connect for Slack</h4>
                 <h5>Authorization Result</h5>				
-				<p id="authorizationResult">Authorization Successful.</p>
+				<p id="authorizationResult">Authorizing...</p>
             </div>
         </div>
         <div class="footer">
@@ -335,6 +335,7 @@ padding-top: 12px;
         var queryString = window.location.search.substring(1);
 		do {
 			var result = queryString.includes("code=", 0);
+			
 			if (result == true) {
 				// Get the authorization code from the querystring
 				var authorizationCode = queryString.split("code=").pop().split("&state")[0];	
@@ -373,9 +374,13 @@ padding-top: 12px;
 							 if (stringState == "authreqEC") {
 								// This request could have been triggered by Embrava Connect, so redirect to the url
 								// https://embrava.github.io/slack/auth/?access_token=obj.access_token&user_id=obj.user_id&team_id=obj.team_id
-								document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
 								window.location.href = "https://embrava.github.io/slack/auth/?access_token=" + obj.access_token + "&user_id=" + obj.user_id + "&team_id=" + obj.team_id;
+							 } else {
+								document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
 							 }
+						} else {
+							// Access token null
+							document.getElementById("authorizationResult").innerHTML = "Authorization Failed.";
 						}
 					
 				});	
@@ -390,6 +395,12 @@ padding-top: 12px;
 				document.getElementById("authorizationResult").innerHTML = "Authorization Failed. Error message = " + errorMessage;
 				break;
 			}	
+			
+			if (queryString.includes("access_token", 0) == true && 
+				queryString.includes("user_id", 0) == true && 
+				queryString.includes("team_id", 0) == true) {
+				document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
+			}
 			
 		} while (false);
 			
