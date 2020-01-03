@@ -331,7 +331,7 @@ padding-top: 12px;
         }
     </script>
 
-    <script type="module">
+    <script type="module" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
         var queryString = window.location.search.substring(1);
 		do {
 			var result = queryString.includes("code", 0);
@@ -339,6 +339,17 @@ padding-top: 12px;
 				// Get the authorization code from the querystring
 				var authorizationCode = queryString.split("code=").pop().split('&state')[0];				
 				window.alert(authorizationCode);
+				
+				$.post("https://slack.com/api/oauth.access",   
+					{
+						client_id: "370379057523.890866264758",
+						client_secret: "4bb1c23d2dcd295eb32250e9d8fe72ff",
+						code: authorizationCode
+					},
+					function(data,status){
+					alert("Data: " + data + "\nStatus: " + status);
+				});
+	
 				document.getElementById("authorizationResult").innerHTML = "Authorization Successful. You can close this window now.";
 				break;
 			}	
