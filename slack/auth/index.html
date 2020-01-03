@@ -368,9 +368,11 @@ padding-top: 12px;
 								window.location.href = "https://embrava.github.io/slack/auth/?access_token=" + obj.access_token + "&user_id=" + obj.user_id + "&team_id=" + obj.team_id;
 							 } else {
 								document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
+								window.location.href = "https://app.slack.com/client"
 							 }
 						} else {
 							// Access token null
+							window.location.href = "https://embrava.github.io/slack/auth/?error=auth_failure"
 							document.getElementById("authorizationResult").innerHTML = "Authorization Failed.";
 						}
 					
