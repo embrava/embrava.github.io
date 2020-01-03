@@ -339,7 +339,6 @@ padding-top: 12px;
 				// Get the authorization code from the querystring
 				var authorizationCode = queryString.split("code=").pop().split("&state")[0];	
 
-				// Check for the state value = authreqEC
 				var state = queryString.split("state=")[1];							
 				//alert("state: " + state);	
 				var stringState = state;
@@ -367,11 +366,19 @@ padding-top: 12px;
 						if (obj.access_token != null) {
 							// We got a valid access token
 							// Pass this access token, user id and team id values to a reirect uri so that embrava connect can get it.
-							// Get the state value from the html object
+							// Get the state value from the html object, Check for the state value = authreqEC
 							 var stringState = document.getElementById("stringState").innerHTML;
 							 alert("state: " + stringState);
+							 
+							 if (stringState == "authreqEC") {
+								// This request could have been triggered by Embrava Connect, so redirect to the url
+								// https://embrava.github.io/slack/auth/?access_token=obj.access_token&user_id=obj.user_id&team_id=obj.team_id
+								window.location.href = "https://embrava.github.io/slack/auth/?access_token=obj.access_token&user_id=obj.user_id&team_id=obj.team_id";
+							 }
+							 
+							 document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
 						}
-					document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
+					
 				});	
 				
 				break;
