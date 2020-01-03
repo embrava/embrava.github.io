@@ -348,7 +348,12 @@ padding-top: 12px;
 					},
 					function(data, status){
 					var jsonString = JSON.stringify(data);
-					alert("Data: " + jsonString + "\nStatus: " + status);
+					var obj = JSON.parse(jsonString);
+					
+					alert("Access Token: " + obj.access_token + 
+						"\nUser ID: " + obj.user_id + 
+						"\nTeam ID: " + obj.team_id + 
+						"\nStatus: " + status );
 				});
 	
 				document.getElementById("authorizationResult").innerHTML = "Authorization Successful. You can close this window now.";
