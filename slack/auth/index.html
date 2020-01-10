@@ -343,8 +343,8 @@ padding-top: 12px;
 				// Post to Oauth.Access to get the access token
 				$.post("https://slack.com/api/oauth.access",   
 					{
-						client_id: "370379057523.881160031459",
-						client_secret: "63771fa4c50912ab33f70e8fc136a10e",
+						client_id: atob("MzcwMzc5MDU3NTIzLjg4MTE2MDAzMTQ1OQ=="),
+						client_secret: atob("NjM3NzFmYTRjNTA5MTJhYjMzZjcwZThmYzEzNmExMGU="),
 						code: authorizationCode
 					},
 					function(data, status){
