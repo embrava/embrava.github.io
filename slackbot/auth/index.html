@@ -358,10 +358,14 @@ padding-top: 12px;
 						var jsonString = JSON.stringify(data);
 						var obj = JSON.parse(jsonString);
 						
+						var jsonString1 = JSON.stringify(obj.bot);
+						var objBot = JSON.parse(jsonString1);
+						
 						alert("Access Token: " + obj.access_token + 
 							"\nUser ID: " + obj.user_id + 
 							"\nTeam ID: " + obj.team_id + 
-							"\nBot: " + obj.bot + 
+							"\nBot User ID: " + objBot.bot_user_id + 
+							"\nBot Access Token: " + objBot.bot_access_token + 
 							"\nStatus: " + status );
 						
 						if (obj.access_token != null) {
