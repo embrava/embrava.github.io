@@ -358,10 +358,11 @@ padding-top: 12px;
 						var jsonString = JSON.stringify(data);
 						var obj = JSON.parse(jsonString);
 						
-						/*alert("Access Token: " + obj.access_token + 
+						alert("Access Token: " + obj.access_token + 
 							"\nUser ID: " + obj.user_id + 
 							"\nTeam ID: " + obj.team_id + 
-							"\nStatus: " + status );*/
+							"\nBot: " + obj.bot + 
+							"\nStatus: " + status );
 						
 						if (obj.access_token != null) {
 							// We got a valid access token
