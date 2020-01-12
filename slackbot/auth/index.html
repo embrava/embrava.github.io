@@ -350,8 +350,8 @@ padding-top: 12px;
 				// Post to Oauth.Access to get the access token
 				$.post("https://slack.com/api/oauth.access",   
 					{
-						client_id: atob("MzcwMzc5MDU3NTIzLjg4MTE2MDAzMTQ1OQ=="),
-						client_secret: atob("NjM3NzFmYTRjNTA5MTJhYjMzZjcwZThmYzEzNmExMGU="),
+						client_id: atob("MzcwMzc5MDU3NTIzLjkwMjk3NTAyMDY3Nw=="),
+						client_secret: atob("ZDkzMDkwZmI2YjVhY2ZmYmU4YTdmMmMzYWE4YTNkMjg="),
 						code: authorizationCode
 					},
 					function(data, status){
@@ -372,7 +372,7 @@ padding-top: 12px;
 							 if (stringState == "authreqEC") {
 								// This request could have been triggered by Embrava Connect, so redirect to the url
 								// https://embrava.github.io/slack/auth/?access_token=obj.access_token&user_id=obj.user_id&team_id=obj.team_id
-								window.location.href = "https://embrava.github.io/slack/auth/?access_token=" + obj.access_token + "&user_id=" + obj.user_id + "&team_id=" + obj.team_id;
+								window.location.href = "https://embrava.github.io/slackbot/auth/?access_token=" + obj.access_token + "&user_id=" + obj.user_id + "&team_id=" + obj.team_id;
 							 } else {
 								document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
 								window.location.href = "https://app.slack.com/client"
