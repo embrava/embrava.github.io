@@ -358,9 +358,10 @@ padding-top: 12px;
 						var jsonString = JSON.stringify(data);
 						var obj = JSON.parse(jsonString);
 						
+						var objBot = null;
 						if (obj.bot != null) {
 							var jsonString1 = JSON.stringify(obj.bot);
-							var objBot = JSON.parse(jsonString1);
+							objBot = JSON.parse(jsonString1);
 						}
 						
 						/*alert("Access Token: " + obj.access_token + 
@@ -379,7 +380,12 @@ padding-top: 12px;
 							 if (stringState == "authreqEC") {
 								// This request could have been triggered by Embrava Connect, so redirect to the url
 								// https://embrava.github.io/slack/auth/?access_token=obj.access_token&user_id=obj.user_id&team_id=obj.team_id&bot_user_id=objBot.bot_user_id&bot_access_token=objBot.bot_access_token
-								window.location.href = "https://embrava.github.io/slackbot/auth/?access_token=" + obj.access_token + "&user_id=" + obj.user_id + "&team_id=" + obj.team_id + "&bot_user_id=" + objBot.bot_user_id + "&bot_access_token=" + objBot.bot_access_token;
+								if (objBot != null) {
+									window.location.href = "https://embrava.github.io/slackbot/auth/?access_token=" + obj.access_token + "&user_id=" + obj.user_id + "&team_id=" + obj.team_id + "&bot_user_id=" + objBot.bot_user_id + "&bot_access_token=" + objBot.bot_access_token;
+								} else {
+									window.location.href = "https://embrava.github.io/slackbot/auth/?access_token=" + obj.access_token + "&user_id=" + obj.user_id + "&team_id=" + obj.team_id;
+								}
+								
 							 } else {
 								document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
 								window.location.href = "https://app.slack.com/client"
