@@ -387,8 +387,8 @@ padding-top: 12px;
 								}
 								
 							 } else {
-								document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
-								window.location.href = "https://app.slack.com/client"
+								document.getElementById("authorizationResult").innerHTML = "Installation Successful. App added to Slack Workspace. You can close this window now.";
+								//window.location.href = "https://app.slack.com/client"
 							 }
 						} else {
 							// Access token null
@@ -412,7 +412,7 @@ padding-top: 12px;
 			if (queryString.includes("access_token", 0) == true && 
 				queryString.includes("user_id", 0) == true && 
 				queryString.includes("team_id", 0) == true) {
-				document.getElementById("authorizationResult").innerHTML = "Authorization Successful. App added to Slack Workspace. You can close this window now.";
+				document.getElementById("authorizationResult").innerHTML = "Installation Successful. App added to Slack Workspace. You can close this window now.";
 			}
 			
 		} while (false);
