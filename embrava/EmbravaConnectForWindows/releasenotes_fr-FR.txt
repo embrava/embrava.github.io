@@ -1,3 +1,4 @@
-Embrava Connect v5.2.32
+Embrava Connect v5.2.33
 
-1. Correctif pour une alerte sur appel Microsoft Teams
+1. Prise en charge de l'état Slack, des appels et des événements de messagerie instantanée
+2. Gérer le correctif de l'interface utilisateur des connexions

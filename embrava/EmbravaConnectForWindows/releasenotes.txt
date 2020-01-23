@@ -1,3 +1,4 @@
-Embrava Connect v5.2.32
+Embrava Connect v5.2.33
 
-1. Fix for Microsoft Teams On-Call alert
+1. Support for Slack status, call and IM events
+2. Manage Connections UI fix
