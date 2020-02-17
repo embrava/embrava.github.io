@@ -1,4 +1,5 @@
-Embrava Connect v5.2.33
+Embrava Connect v5.2.34
 
-1. Prise en charge de l'état Slack, des appels et des événements de messagerie instantanée
-2. Gérer le correctif de l'interface utilisateur des connexions
+1. Prise en charge du proxy Web pour Genesys PureCloud
+2. Correctifs de stabilité de mise à jour automatique
+3. Correction de l'interface utilisateur de connexion sous licence

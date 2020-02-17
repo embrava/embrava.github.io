@@ -1,4 +1,5 @@
-Embrava Connect v5.2.33
+Embrava Connect v5.2.34
 
-1. Support for Slack status, call and IM events
-2. Manage Connections UI fix
+1. Web proxy support for Genesys PureCloud
+2. Autoupdate stability fixes
+3. Licenced connection UI fix
