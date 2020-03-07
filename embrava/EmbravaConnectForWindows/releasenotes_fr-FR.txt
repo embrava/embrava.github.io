@@ -1,5 +1,4 @@
-Embrava Connect v5.2.34
+Embrava Connect v5.2.37
 
-1. Prise en charge du proxy Web pour Genesys PureCloud
-2. Correctifs de stabilité de mise à jour automatique
-3. Correction de l'interface utilisateur de connexion sous licence
+1. Intégration de Desk Sign pour afficher les événements de disponibilité des utilisateurs sur Desk Sign.
+2. Correctif d'intégration lente pour le changement de WebSocket.
