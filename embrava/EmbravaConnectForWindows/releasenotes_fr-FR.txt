@@ -1,4 +1,4 @@
-Embrava Connect v5.2.33
+Embrava Connect v5.2.37
 
-1. Prise en charge de l'état Slack, des appels et des événements de messagerie instantanée
-2. Gérer le correctif de l'interface utilisateur des connexions
+1. Intégration de Desk Sign pour afficher les événements de disponibilité des utilisateurs sur Desk Sign.
+2. Correctif d'intégration lente pour le changement de WebSocket.

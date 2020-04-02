@@ -1,4 +1,4 @@
-Embrava Connect v5.2.33
+Embrava Connect v5.2.37
 
-1. Support for Slack status, call and IM events
-2. Manage Connections UI fix
+1. Desk Sign integration to display user availability events on Desk Sign.
+2. Slack integration fix for WebSocket change.
