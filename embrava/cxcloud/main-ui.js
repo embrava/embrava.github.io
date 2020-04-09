@@ -158,6 +158,8 @@
 				if (status === 'error') {
 					// Error
 					console.log("status: error");
+					
+					// may retry sending the request again.
 				} else { 					
 					console.log("status: success");
 				}			
