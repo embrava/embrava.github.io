@@ -1,4 +1,4 @@
 Embrava Connect v5.2.37
 
-1. Intégration de Desk Sign pour afficher les événements de disponibilité des utilisateurs sur Desk Sign.
-2. Correctif d'intégration lente pour le changement de WebSocket.
+1. Intégration CX Cloud
+2. La mise à jour de la configuration d'Embrava Flow provoque un faux positif anti-virus
