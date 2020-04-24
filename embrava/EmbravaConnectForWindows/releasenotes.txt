@@ -1,4 +1,4 @@
-Embrava Connect v5.2.45
+Embrava Connect v5.2.47
 
-1. CX Cloud integration
-2. Update Embrava Flow configuration cause anti-virus false positive
+1. Addition of Enghouse CxCloud
+2. Addition of msi switches to disable Automatic and Manual update features.

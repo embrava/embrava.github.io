@@ -1,4 +1,4 @@
-Embrava Connect v5.2.37
+Embrava Connect v5.2.47
 
-1. Intégration CX Cloud
-2. La mise à jour de la configuration d'Embrava Flow provoque un faux positif anti-virus
+1. Ajout d'Enghouse CxCloud
+2. Ajout de commutateurs msi pour désactiver les fonctions de mise à jour automatique et manuelle.
