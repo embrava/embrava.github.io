@@ -5,21 +5,25 @@ clientLogs = finesse.cslogger.ClientLogger || {};
 
 finesse.modules = finesse.modules || {};
 finesse.modules.EmbravaGadget = (function ($) {
-    var user, states, dialogs, clientlogs, reasonCodesDict;
-	var embravaConnectURL = "http://localhost:8081/";
+    var user, states, dialogs, clientlogs, _dialog;
+	var reasonCodesDict = [];
 	var incomingCallState = "INCOMING_CALL";
-	var logout = "LOGOUT";
-	var debug = true;
 
     /**
      * Populates the fields in the gadget with data
      */
     updateState = function (currentState) {
+		writeToLog("updateState entry: " + currentState);
 		var notReadyReason = '';
 		if (currentState == states.NOT_READY) {
 			var notReadyReasonCodeId = user.getNotReadyReasonCodeId();
 			if (typeof notReadyReasonCodeId !== "undefined") {
-				notReadyReason = reasonCodesDict[user.getNotReadyReasonCodeId()];
+				if(typeof reasonCodesDict[notReadyReasonCodeId] !== 'undefined') {
+					notReadyReason = reasonCodesDict[notReadyReasonCodeId];
+				} else {
+					notReadyReason = "";
+					writeToLog("updateState: NotReady ResonCodeList Invalid");
+				}
 			}
 		}
 		var userDisplayName = user.getFirstName() + " " + user.getLastName();
@@ -37,68 +41,165 @@ finesse.modules.EmbravaGadget = (function ($) {
 								("0" + d.getSeconds()).slice(-2) + ("00" + d.getMilliseconds()).slice(-3));
 		agentStateJson.TimeStamp = timestampStr;
 		agentStateJson.Id = guid();
+		
+		if (_dialog) {
+			var mediaProperties = _dialog.getMediaProperties();
+			if (mediaProperties['callType']) {
+				agentStateJson.CallType = mediaProperties['callType'];
+				writeToLog("updateState agentStateJson.CallType: " + agentStateJson.CallType);
+			}
+			if (mediaProperties['queueNumber']) {
+				agentStateJson.SkillGroupId = mediaProperties['queueNumber']
+				writeToLog("updateState agentStateJson.SkillGroupId: " + agentStateJson.SkillGroupId);
+			}
+			if (mediaProperties['queueName']) {
+				agentStateJson.SkillGroupName = mediaProperties['queueName'];
+				writeToLog("updateState agentStateJson.SkillGroupName: " + agentStateJson.SkillGroupName);
+			}
+		}
+		
+		writeToLog("updateState agentStateJson.AgentState: " + agentStateJson.AgentState);
+		writeToLog("updateState agentStateJson.AgentDisplayName: " + agentStateJson.AgentDisplayName);
+		writeToLog("updateState agentStateJson.ReasonCode: " + agentStateJson.ReasonCode);
+		writeToLog("updateState agentStateJson.TimeStamp: " + agentStateJson.TimeStamp);
+		writeToLog("updateState agentStateJson.Id: " + agentStateJson.Id);
+		
 		var prettyAgentStateJson = JSON.stringify(agentStateJson, undefined, 4);
+		
+		//var prettyAgentStateJson = encodeURI(JSON.stringify(agentStateJson, undefined, 4)).replace(/#/g, '%23');
+		
+		writeToLog("updateState prettyAgentStateJson: " + prettyAgentStateJson);
+		
 		sendToEmbravaConnect(prettyAgentStateJson);
+		writeToLog("updateState exit");
 		if (debug) {
 			$('#debugConsole').val(function(i, text) {
 				return prettyAgentStateJson + '\n' + text;
 			});
 		}
     },
+	
+	writeToLog = function(logMessage) {
+		if (debug == false) {
+			return;
+		}
+		clientLogs.log(logMessage);
+	},
 
+	identifyCallEvent = function(dialogState) {
+		writeToLog("identifyCallEvent entry - dialogState: " + dialogState);
+		if (dialogState == "ALERTING" && user.getState() != "TALKING") {
+			writeToLog("identifyCallEvent : incomingCall");
+			updateState(incomingCallState);
+		} else {
+			writeToLog("identifyCallEvent : updatingUserStateToEC: " + user.getState());
+			updateState(user.getState());
+		}	
+		writeToLog("identifyCallEvent exit");
+	},
      
+	/**
+     *  Handler for any changes in the Dialogs collection object.
+     */
+	handleDialogChange = function (dialog) {
+		writeToLog("handleDialogChange entry");
+		var dialogState = dialog.getState();		
+		identifyCallEvent(dialogState);
+		writeToLog("handleDialogChange exit");
+    },
+	
+    /**
+     *  Handler for additions to the Dialogs collection object.  This will occur when a new
+     *  Dialog is created on the Finesse server for this user.
+     */
+	handleDialogAdd = function(dialog) {
+		writeToLog("handleDialogAdd entry");
+		var dialogState = dialog.getState();		
+		_dialog = dialog;		
+		identifyCallEvent(dialogState);		
+		// add a change handler to the dialog
+        dialog.addHandler('change', handleDialogChange);
+		writeToLog("handleDialogAdd exit");
+    },
+     
+    /**
+     *  Handler for deletions from the Dialogs collection object for this user.  This will occur
+     *  when a Dialog is removed from this user's collection (example, end call)
+     */
+    handleDialogDelete = function(dialog) {
+		
+		writeToLog("handleDialogDelete entry");
+		
+		updateState(user.getState());
+		
+		if (dialog.getId() === _dialog.getId()) {
+			_dialog = null;
+		} else {
+		}
+		
+		writeToLog("handleDialogDelete exit");
+    },
+	
     /**
      * Handler for the onLoad of a User object. This occurs when the User object is initially read
      * from the Finesse server. Any once only initialization should be done within this function.
      */
     handleUserLoad = function (userevent) {
+		
+		writeToLog("handleUserLoad entry");
+		
         updateState(user.getState());
 		
-		dialogs = user.getDialogs( {
-            onCollectionAdd : handleNewDialog
+		dialogs = user.getDialogs({
+            onCollectionAdd : handleDialogAdd,
+            onCollectionDelete : handleDialogDelete
         });
-
-    },
+		
+		writeToLog("handleUserLoad exit");
+	},
       
     /**
      *  Handler for all User updates
      */
     handleUserChange = function(userevent) {
+		writeToLog("handleUserChange entry");
         updateState(user.getState());
+		writeToLog("handleUserChange exit");
     },
-
-    /**
-     *  Handler for additions to the Dialogs collection object. This will occur when a new
-     *  Dialog is created on the Finesse server for this user.
-     */
-    handleNewDialog = function(dialog) {
-        updateState(incomingCallState);
-    };
 	
 	/**
      *  Handler for get all Not Ready Reason Codes
      */
 	handleNotReadyReasonCodesSuccess = function(reasonCodes) {
+		writeToLog("handleNotReadyReasonCodesSuccess entry");
 		reasonCodesDict = [];
 		for(var i = 0; i < reasonCodes.length; i++) {
 			var reasonCode = reasonCodes[i];
 			if (reasonCode.hasOwnProperty('id') && reasonCode.hasOwnProperty('label')) {
 				reasonCodesDict[reasonCode.id] = reasonCode.label
+				writeToLog("handleNotReadyReasonCodesSuccess reasonCode.label: " + reasonCode.label);
 			}
 		}
+		writeToLog("handleNotReadyReasonCodesSuccess exit");
      }
 	 
 	 /**
 	 *	Send Agent State to Embrava Connect
 	 */
 	function sendToEmbravaConnect(message) {
+		writeToLog("sendToEmbravaConnect entry");
+		var jsonMessage;
+		jsonMessage = JSON.stringify({ Message: message });
+		jsonMessage = encodeURIComponent(jsonMessage);
+		writeToLog("jsonMessage: " + jsonMessage);
 		$.ajax({
 			type: "POST",
 			url: embravaConnectURL,
-			data: JSON.stringify({ Message: message }),
+			data: jsonMessage,
 			contentType: "application/json; charset=utf-8",
 			dataType: "jsonp"
 		});
+		writeToLog("sendToEmbravaConnect exit");
 	}
 	
 	/**
@@ -135,16 +236,16 @@ finesse.modules.EmbravaGadget = (function ($) {
             finesse.clientservices.ClientServices.init(cfg, false);
 
             // Initiate the ClientLogs. The gadget id will be logged as a part of the message
-            clientLogs.init(gadgets.Hub, "EmbravaGadget");
+            clientLogs.init(gadgets.Hub, "EmbravaGadgetLog");
 
+			states = finesse.restservices.User.States;
+			
             user = new finesse.restservices.User({
                 id: cfg.id, 
                 onLoad : handleUserLoad,
                 onChange : handleUserChange
             });
 
-            states = finesse.restservices.User.States;
-            
 			user.getNotReadyReasonCodes({
 				success: handleNotReadyReasonCodesSuccess
 			});

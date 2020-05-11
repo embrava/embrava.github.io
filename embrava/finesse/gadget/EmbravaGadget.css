@@ -5,7 +5,7 @@ body {
 
 div.main {
 	display: block;
-	height: 171px;
+	height: 177px;
 	width: 600px;
 	border-style: groove;
 	border-radius: 25px;
@@ -19,15 +19,24 @@ div.main:after {
 }
 
 input {
-	margin: 15px;
+	margin: 15px 15px 5px 15px;
 }
 
 select {
 	margin: 5px 15px 15px 60px;
 }
 
-label {
+label.selectLabel {
 	margin: 15px 15px 15px 60px;
+}
+
+label.errMsg {
+	margin: 5px 15px 15px 15px;
+	color: red;
+}
+
+label {
+	margin: 15px 15px 5px 0px;
 }
 
 div.settings {
@@ -43,6 +52,6 @@ div.debug {
 
 textarea.console {
   resize: none;
-  height: 164px;
+  height: 170px;
   width: 300px;
 }
