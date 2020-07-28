@@ -1,4 +1,3 @@
-Embrava Connect v5.2.47
+Embrava Connect v5.2.49
 
-1. Ajout d'Enghouse CxCloud
-2. Ajout de commutateurs msi pour désactiver les fonctions de mise à jour automatique et manuelle.
+1. Inclut les configurations Zoom à recevoir du registre.
