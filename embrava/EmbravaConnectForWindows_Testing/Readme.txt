@@ -26,6 +26,7 @@ Contents of the updateinfo.json:
 {
 	"version": "5.2.26",
 	"installerUrl": "http://bit.ly/33RingN",
+	"installerAlternateUrl": "https://cdn2.hubspot.net/hubfs/5409396/Installers/EmbravaConnect_v5.2.33.zip",
 	"releaseDate": "06.September.2019"
 }
 
@@ -39,11 +40,9 @@ Steps for deploying the update:
 --------------------------------
 
 1. Get the EmbravaConnect_va.b.c.zip installer zip package from the dev team. The autoupdate supports zip package only.
-The zip file will have the files - EmbravaConnect.msi and Readme.txt. Don't edit the contents of the zip file or 
-don't edit the name of the installer zip package.
+The zip file will have the files - EmbravaConnect_Setup.exe, EmbravaConnect.msi and Readme.txt. Don't edit the contents of the zip file or don't edit the name of the installer zip package.
 
-2. Host the zip file (EmbravaConnect_va.b.c.zip) on any file hosting server to get the http / https download url. When this url is activated
-by browser then this zip file would be downloaded. This is the direct url of the installer zip package.
+2. Host the zip file (EmbravaConnect_va.b.c.zip) on any file hosting server to get the http / https download url. When this url is activated by browser then this zip file would be downloaded. This is the direct url of the installer zip package.
 
 3. Bitly tracking. We can use the bitly converted download url for this installer package. Use the direct url of the installer zip package 
 on the bitly.com account and get the bitly url.
@@ -51,13 +50,16 @@ on the bitly.com account and get the bitly url.
 4. Now if you need tracking enter the bitly url in the installerUrl field of the updateinfo.json. If you don't need the tracking enter the 
 direct url of the installer zip package in the installerUrl filed of the updateinfo.json.
 
-5. Update the version field of the updateinfo.json.
+5. Enter the enter the direct url of the installer zip package in the installerAlternateUrl filed of the updateinfo.json. This is needed when Embrava Connect is unable to get the 
+update package through the bitly url specified in installerUrl field. Even if the direct url is specified in the installerUrl, specify the direct url in the installerAlternateUrl field.
 
-6. Update the releaseDate field of the updateinfo.json.
+6. Update the version field of the updateinfo.json.
 
-7. Update the releasenotes.txt file in this folder.
+7 Update the releaseDate field of the updateinfo.json.
 
-8. Commit the changes to the repository.
+8 Update the releasenotes.txt file in this folder.
+
+9 Commit the changes to the repository.
 
 This finishes the update deployment process.
 
