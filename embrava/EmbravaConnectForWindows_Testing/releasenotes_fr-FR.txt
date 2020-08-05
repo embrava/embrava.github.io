@@ -1,3 +1,4 @@
-Embrava Connect v5.2.49
+Embrava Connect v5.2.50
 
-1. Inclut les configurations Zoom à recevoir du registre.
+1. Ajout de Genesys PureConnect à la liste des connexions
+2. Suppression de Skype pour la maison (Skype Classic Desktop) de la liste des connexions
