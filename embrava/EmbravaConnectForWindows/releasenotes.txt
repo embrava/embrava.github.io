@@ -1,4 +1,2 @@
-Embrava Connect v5.2.51
-
 1. Genesys PureConnect support added.
 2. Disabled TLS1.0, 1.1 and Enabled TLS1.2 support for Broadsoft Communicator Integration
