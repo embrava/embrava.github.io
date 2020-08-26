@@ -1,3 +1,4 @@
-Embrava Connect v5.2.49
+Embrava Connect v5.2.51
 
-1. Include Zoom configurations to be received from Registry.
+1. Genesys PureConnect support added.
+2. Disabled TLS1.0, 1.1 and Enabled TLS1.2 support for Broadsoft Communicator Integration
