@@ -1,1 +1,0 @@
-{"Update":"firmware", "files":[{"type":"Bootloader","version":"1.0.0","name":"NRF_Bootloader_c.bin","size":57997},{"type":"nRF","version":"1.0.4","name":"nRF_Update_c.bin","size":366355},{"type":"ESP","version":"1.9.20","name":"ESP_Update_c.bin","size":513672}]}
