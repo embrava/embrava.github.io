@@ -314,8 +314,8 @@ padding-top: 12px;
         <div class="hero-image" style="background-image: url(img/new-app.jpg);">
             <div class="caption">
                 <h4>Embrava Connect for Teams</h4>
-                <h5>Admin Consent</h5>				
-				<p id="authorizationResult" >Consent result</p>
+                <h5 id="functionName">Admin Consent</h5>				
+				<p id="authorizationResult">Consent result</p>
             </div>
         </div>
         <div class="footer">
@@ -339,7 +339,13 @@ padding-top: 12px;
 				break;
 			}	
 			
+			var result = queryString.includes("code=", 0);
 			
+			if (result == true) {
+				document.getElementById("authorizationResult").innerHTML = "Sign-in successful.";
+				document.getElementById("functionName").innerHTML = "Sign-in Result.";
+				break;
+			}
 			
 		} while (false);
 			
