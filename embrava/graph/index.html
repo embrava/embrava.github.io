@@ -335,6 +335,7 @@ padding-top: 12px;
 			var result = queryString.includes("admin_consent=True", 0);
 			
 			if (result == true) {
+				document.getElementById("functionName").innerHTML = "Admin consent result";
 				document.getElementById("authorizationResult").innerHTML = "Admin consent successful.";
 				break;
 			}	
@@ -342,8 +343,8 @@ padding-top: 12px;
 			var result = queryString.includes("code=", 0);
 			
 			if (result == true) {
-				document.getElementById("authorizationResult").innerHTML = "Sign-in successful.";
-				document.getElementById("functionName").innerHTML = "Sign-in Result.";
+				document.getElementById("functionName").innerHTML = "Sign-in result";
+				document.getElementById("authorizationResult").innerHTML = "Sign-in successful.";				
 				break;
 			}
 			
