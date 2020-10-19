@@ -1,2 +1,1 @@
-1. Prise en charge de Genesys PureConnect ajoutée.
-2. Prise en charge de TLS1.0, 1.1 et TLS1.2 activée pour l'intégration de Broadsoft Communicator
+1.Bria fixe de connexion pour les dernières Bria 5 et 6 versions
