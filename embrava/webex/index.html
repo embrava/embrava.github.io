@@ -328,6 +328,7 @@ padding-top: 12px;
 		do {
 			var result = queryString.includes("error=access_denied", 0);
 			if (result == true) {				
+				document.getElementById("functionName").innerHTML = "Sign-in result";
 				document.getElementById("authorizationResult").innerHTML = "User consent denied. Sign-in failed.";
 				break;
 			}
