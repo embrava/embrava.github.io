@@ -314,8 +314,8 @@ padding-top: 12px;
         <div class="hero-image" style="background-image: url(img/new-app.jpg);">
             <div class="caption">
                 <h4>Embrava Connect for WebEx Teams</h4>
-                <h5 id="functionName">User Consent</h5>				
-				<p id="authorizationResult">Consent result</p>
+                <h5 id="functionName">Sign-in result</h5>				
+				<p id="authorizationResult"></p>
             </div>
         </div>
         <div class="footer">
@@ -329,7 +329,7 @@ padding-top: 12px;
 			var result = queryString.includes("error=access_denied", 0);
 			if (result == true) {				
 				document.getElementById("functionName").innerHTML = "Sign-in result";
-				document.getElementById("authorizationResult").innerHTML = "User consent denied. Sign-in failed.";
+				document.getElementById("authorizationResult").innerHTML = "Permissions denied. Sign-in failed.";
 				break;
 			}
 			
