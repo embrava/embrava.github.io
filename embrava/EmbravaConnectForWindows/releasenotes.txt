@@ -1,1 +1,1 @@
-1.Bria Connection fixes for latest Bria 5 and Bria 6 versions
+1.Support for Cisco WebEx Teams

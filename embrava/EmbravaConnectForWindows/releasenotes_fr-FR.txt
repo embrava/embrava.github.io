@@ -1,1 +1,1 @@
-1.Bria fixe de connexion pour les dernières Bria 5 et 6 versions
+1.Prise en charge de Cisco WebEx Teams
