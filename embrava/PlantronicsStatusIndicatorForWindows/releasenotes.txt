@@ -1,4 +1,4 @@
-Plantronics Status Indicator companion app v1.0.6
+Plantronics Status Indicator companion app v1.0.7
 
 1. Improved stability of Microsoft Teams integration 
 
