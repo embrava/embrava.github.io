@@ -1,26 +1,24 @@
 
-// Part of https://todbot.github.io/blink1-webhid/
-
 document.getElementById('start-button').addEventListener('click', handleConnectClick);
 document.getElementById('stop-button').addEventListener('click', handleDisconnectClick);
 
 async function handleConnectClick() {
     let acolor = [ 255, 0, 255 ];  // purple
     let device = await openDevice();
-    await fadeToColor(device, acolor );
+    await turnToColor(device, acolor );
 }
 
 async function handleDisconnectClick() {
     let acolor = [ 0, 0, 0 ]; // off
     let device = await openDevice();
     if( !device ) return;
-    await fadeToColor(device, acolor);
+    await turnToColor(device, acolor);
     await device.close();
 }
 
 async function openDevice() {
-    const vendorId = 0x2c0d; // blink1 vid
-    const productId = 0x000a;  // blink1 pid
+    const vendorId = 0x2c0d; // Blyncusb Mini vid
+    const productId = 0x000a;  // Blyncusb Mini pid
 
     const device_list = await navigator.hid.getDevices();
     console.log(device_list)
@@ -44,14 +42,14 @@ async function openDevice() {
     return device;
 }
 
-async function fadeToColor(device, [r, g, b] ) {
+async function turnToColor(device, [r, g, b] ) {
     if(!device) return;
     const reportId = 0;
     const data = Uint8Array.from([r, b, g, 0x08, 0x00, 0x00, 0xFF, 0x22 ]);
     try {
         await device.sendReport(reportId, data);
     } catch (error) {
-        console.error('fadeToColor: failed:', error);
+        console.error('turnToColor: failed:', error);
     }
 }
 
