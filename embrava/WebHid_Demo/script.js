@@ -47,7 +47,7 @@ async function openDevice() {
 async function fadeToColor(device, [r, g, b] ) {
     if(!device) return;
     const reportId = 0;
-    const data = Uint8Array.from([r, g, b, 0x08, 0x00, 0x00, 0xFF, 0x22 ]);
+    const data = Uint8Array.from([r, b, g, 0x08, 0x00, 0x00, 0xFF, 0x22 ]);
     try {
         await device.sendReport(reportId, data);
     } catch (error) {
