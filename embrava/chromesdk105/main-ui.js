@@ -103,6 +103,8 @@
 			// event.device will bring the disconnected device
 		    enumerateDevices_ui();	
 		}); 
+		
+		enumerateDevices_ui();
 	};
 
 	window.addEventListener('load', initializeWindow);
