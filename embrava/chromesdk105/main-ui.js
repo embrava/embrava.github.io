@@ -373,6 +373,7 @@
 	    ui.musicSelector.disabled = !bEnabled;
 	    ui.volumeRange.disabled = !bEnabled;
 	    ui.repeatMusic.disabled = !bEnabled;
+		ui.volumeMute.disabled = !bEnabled;
 	};
 	
     // Get all supported Embrava Devices
