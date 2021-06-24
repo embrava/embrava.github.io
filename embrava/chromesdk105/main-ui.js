@@ -104,6 +104,8 @@
 		    enumerateDevices_ui();	
 		}); 
 		
+		// The following call will find and add the devices to the device list if 
+		// they are already paired / permitted by the user
 		enumerateDevices_ui();
 	};
 
@@ -112,7 +114,8 @@
     // Add Device button click event
 	var onButtonAddDeviceClicked = async function() {
 		try {
-			let device1 = await RequestUSBDevice();
+			// Add a new device with the permission obtained from user
+			await RequestUSBDevice();
 			enumerateDevices_ui();		
 		}
 		catch (err) {
