@@ -353,6 +353,7 @@
 		ui.musicSelector.disabled = !bEnabled;
 		ui.volumeRange.disabled = !bEnabled;
 		ui.repeatMusic.disabled = !bEnabled;
+		ui.volumeMute.disabled = !bEnabled;
 	};
 
     // Update UI contorls for all v30 and v40 devices for Light related controls
