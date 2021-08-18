@@ -1,3 +1,7 @@
-1. Incoming Call alert bug during active chat window fixed for Skype for Business.
+1. RingCentral integration update with new SDK for supporting new RingCentral App along with the classic RingCentral Phone App
 
-2. Incoming Call alert bug during outgoing call fixed for RingCentral.
+2. WebBrowser usage has been updated with Microsoft WebView2 - for Microsoft Teams, RingCentral and Slack authorization
+
+3. Alerting the Slack Incoming IM till the IM is read
+
+4. WebView2 Runtime installation will be performed by Embrava Connect installer if this component is missing in user’s PC.
