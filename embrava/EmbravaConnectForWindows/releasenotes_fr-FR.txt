@@ -1,3 +1,7 @@
-1. Correction d'un bug d'alerte d'appel entrant pendant la fenêtre de discussion active pour Skype Entreprise.
+1. Mise à jour de l'intégration RingCentral avec le nouveau SDK pour prendre en charge la nouvelle application RingCentral avec l'application RingCentral Phone classique
 
-2. Correction d'un bug d'alerte d'appel entrant lors d'un appel sortant pour RingCentral.
+2. L'utilisation de WebBrowser a été mise à jour avec Microsoft WebView2 - pour les autorisations Microsoft Teams, RingCentral et Slack
+
+3. Alerter l'IM entrant Slack jusqu'à ce que l'IM soit lu
+
+4. L'installation de WebView2 Runtime sera effectuée par le programme d'installation d'Emrava Connect si ce composant est manquant sur le PC de l'utilisateur.

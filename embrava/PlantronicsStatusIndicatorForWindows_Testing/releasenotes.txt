@@ -1,0 +1,5 @@
+Plantronics Status Indicator companion app v2.0.1
+
+1. Adding connections such as Cisco WebEx, Slack etc
+
+2. General UI display fixes added
