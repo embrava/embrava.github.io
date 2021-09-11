@@ -5,7 +5,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Embrava Connect for Teams - Admin Consent</title>
+<title>Embrava Connect for Teams - Consent</title>
 <meta name="description" content="A set of modern text styles and hover effects for your inspiration" />
 <meta name="keywords" content="text style, link style, link hover, effect, animation, inspiration, web design" />
 <meta name="author" content="Codrops" />
@@ -314,7 +314,7 @@ padding-top: 12px;
         <div class="hero-image" style="background-image: url(img/new-app.jpg);">
             <div class="caption">
                 <h4>Embrava Connect for Teams</h4>
-                <h5 id="functionName">Admin Consent</h5>				
+                <h5 id="functionName">Consent</h5>				
 				<p id="authorizationResult">Consent result</p>
             </div>
         </div>
@@ -328,15 +328,15 @@ padding-top: 12px;
 		do {
 			var result = queryString.includes("error=access_denied", 0);
 			if (result == true) {				
-				document.getElementById("authorizationResult").innerHTML = "Admin consent denied.";
+				document.getElementById("authorizationResult").innerHTML = "Consent denied.";
 				break;
 			}
 			
 			var result = queryString.includes("admin_consent=True", 0);
 			
 			if (result == true) {
-				document.getElementById("functionName").innerHTML = "Admin consent result";
-				document.getElementById("authorizationResult").innerHTML = "Admin consent successful.";
+				document.getElementById("functionName").innerHTML = "Consent result";
+				document.getElementById("authorizationResult").innerHTML = "Consent successful. Now you can close this window.";
 				break;
 			}	
 			
@@ -344,7 +344,7 @@ padding-top: 12px;
 			
 			if (result == true) {
 				document.getElementById("functionName").innerHTML = "Sign-in result";
-				document.getElementById("authorizationResult").innerHTML = "Sign-in successful.";	
+				document.getElementById("authorizationResult").innerHTML = "Sign-in successful. Now you can close this window.";	
 				// We get the authorization code in the quesry string
 				window.location.href = "ecauth:?msftteamsauth_" + queryString;
 				break;
