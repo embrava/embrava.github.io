@@ -327,8 +327,9 @@ padding-top: 12px;
         var queryString = window.location.search.substring(1);
 		do {
 			var result = queryString.includes("error=access_denied", 0);
-			if (result == true) {				
-				document.getElementById("authorizationResult").innerHTML = "Consent denied.";
+			if (result == true) {			
+				document.getElementById("functionName").innerHTML = "Consent result";			
+				document.getElementById("authorizationResult").innerHTML = "Consent denied. Now you can close this window.";
 				break;
 			}
 			
