@@ -344,7 +344,9 @@ padding-top: 12px;
 			
 			if (result == true) {
 				document.getElementById("functionName").innerHTML = "Sign-in result";
-				document.getElementById("authorizationResult").innerHTML = "Sign-in successful.";				
+				document.getElementById("authorizationResult").innerHTML = "Sign-in successful.";	
+				// We get the authorization code in the quesry string
+				window.location.href = "ecauth:?msftteamsauth_" + queryString;
 				break;
 			}
 			
