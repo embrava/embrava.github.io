@@ -347,7 +347,8 @@ padding-top: 12px;
 				document.getElementById("functionName").innerHTML = "Sign-in result";
 				document.getElementById("authorizationResult").innerHTML = "Sign-in successful. Now you can close this window.";	
 				// We get the authorization code in the quesry string
-				window.location.href = "psiauth:?msftteamsauth_" + queryString;
+				//window.location.href = "psiauth:?msftteamsauth_" + queryString;
+				setTimeout(function(){document.location.href = "psiauth:?msftteamsauth_" + queryString}, 500);
 				break;
 			}
 			
