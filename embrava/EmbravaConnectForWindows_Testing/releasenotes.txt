@@ -1,4 +1,0 @@
-Embrava Connect v5.2.50
-
-1. Addition of Genesys PureConnect to Connections list
-2. Removal of Skype for Home (Skype Classic Desktop) from Connections list
