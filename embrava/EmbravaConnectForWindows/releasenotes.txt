@@ -1,4 +1,2 @@
-1. Handled Slack Group Message IM
-2. In Manual Mode - added "No color" to the Hotkey light color list, so that light can be turned off manually with hotkey
-3. Updated Zoom integration to use the latest Zoom Client SDK
-4. Updated Plantronics Hub integration to use the latest Plantronics Hub SDK
+1. Authentication update for Microsoft Teams server side integration
+2. Synchronization update for RingCentral

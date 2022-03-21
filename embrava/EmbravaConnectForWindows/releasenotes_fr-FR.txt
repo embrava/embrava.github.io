@@ -1,4 +1,2 @@
-1. Message de groupe Slack géré IM
-2. En mode manuel - ajout de "Aucune couleur" à la liste des couleurs de la lumière du raccourci clavier, de sorte que la lumière puisse être éteinte manuellement avec le raccourci clavier
-3. Mise à jour de l'intégration de Zoom pour utiliser le dernier SDK Zoom Client
-4. Mise à jour de l'intégration Plantronics Hub pour utiliser le dernier SDK Plantronics Hub
+1. Mise à jour de l'authentification pour l'intégration côté serveur Microsoft Teams
+2. Mise à jour de synchronisation pour RingCentral
