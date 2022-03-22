@@ -1,2 +1,1 @@
-1. Mise à jour de l'authentification pour l'intégration côté serveur Microsoft Teams
-2. Mise à jour de synchronisation pour RingCentral
+1. Correction du problème de synchronisation RingCentral.
