@@ -96,20 +96,37 @@
             queryString = decodeURIComponent(queryString);
         }
         var pairs = queryString.split('&');
-        var environment = '';
-        var language = '';
+        var pcEnv = '';
+        var langTag = '';
         for (var i = 0; i < pairs.length; i++) {
             var currParam = pairs[i].split('=');
 
             if (currParam[0] === 'langTag') {
-                language = currParam[1];
+                langTag = currParam[1];
             } else if (currParam[0] === 'pcEnvironment') {
-                environment = currParam[1];
+                pcEnv = currParam[1];
             } else if (currParam[0] === 'environment') {
-                environment = currParam[1];
+                pcEnv = currParam[1];
             }
         }
-        queryString = 'langTag=' + language + '&environment=' + environment;
+		
+		if(pcEnv){
+			localStorage.setItem(config.appName + ":environment", pcEnv);
+		}else if(localStorage.getItem(config.appName + ":environment")){
+			pcEnv = localStorage.getItem(config.appName + ":environment");
+		} else {
+			pcEnv = config.defaultPcEnvironment;
+		}
+
+		if(langTag){
+			localStorage.setItem(config.appName + ":langTag", langTag);
+		}else if(localStorage.getItem(config.appName + ":langTag")){
+			langTag = localStorage.getItem(config.appName + ":langTag");
+		} else {
+			langTag =  config.defaultLanguage;
+		}
+		
+        queryString = 'langTag=' + langTag + '&environment=' + pcEnv;
         myApp.start()
             // Check Product Availability and display appropriate message
             .then(() => {

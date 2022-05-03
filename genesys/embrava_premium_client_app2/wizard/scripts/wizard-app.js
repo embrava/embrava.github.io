@@ -84,19 +84,39 @@ class WizardApp {
             queryString = decodeURIComponent(queryString);
         }
         const pairs = queryString.split('&');
-        let pcEnv = null;   
+		
+        var langTag = null;
+        var pcEnv = null;  
+		
         for (var i = 0; i < pairs.length; i++)
         {
             var currParam = pairs[i].split('=');
 
             if(currParam[0] === 'langTag') {
                 this.language = currParam[1];
+				langTag = this.language;
             } else if(currParam[0] === 'pcEnvironment') {
                 pcEnv = currParam[1];
             } else if(currParam[0] === 'environment' && pcEnv === null) {
                 pcEnv = currParam[1];
             }
         }
+		
+		if(pcEnv){
+			localStorage.setItem(config.appName + ":environment", pcEnv);
+		}else if(localStorage.getItem(config.appName + ":environment")){
+			pcEnv = localStorage.getItem(config.appName + ":environment");
+		} else {
+			pcEnv = config.defaultPcEnvironment;
+		}
+
+		if(langTag){
+			localStorage.setItem(config.appName + ":langTag", langTag);
+		}else if(localStorage.getItem(config.appName + ":langTag")){
+			langTag = localStorage.getItem(config.appName + ":langTag");
+		} else {
+			langTag =  config.defaultLanguage;
+		}
 
         if(pcEnv){
             this.pcApp = new window.purecloud.apps.ClientApp({pcEnvironment: pcEnv});
