@@ -60,11 +60,12 @@ function errorCallback1(data) {
 clientApp.setup = function(pcEnv, langTag, html){
     let clientId = config.clientID;
     clientApp.langTag = langTag;
-
+	clientApp.pcEnv = pcEnv;
 
     // Authenticate via PureCloud
+	client.setPersistSettings(true, config.appName);
     client.setEnvironment(pcEnv);
-    client.setPersistSettings(true);
+	
     client.loginImplicitGrant(clientId, config.basePath + html, config.appName)
     .then(data => {
         console.log(data);
