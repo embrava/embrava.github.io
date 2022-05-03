@@ -103,19 +103,19 @@ class WizardApp {
         }
 		
 		if(pcEnv){
-			localStorage.setItem(config.appName + ":environment", pcEnv);
-		}else if(localStorage.getItem(config.appName + ":environment")){
-			pcEnv = localStorage.getItem(config.appName + ":environment");
+			localStorage.setItem(appConfig.appName + ":environment", pcEnv);
+		}else if(localStorage.getItem(appConfig.appName + ":environment")){
+			pcEnv = localStorage.getItem(appConfig.appName + ":environment");
 		} else {
-			pcEnv = config.defaultPcEnvironment;
+			pcEnv = appConfig.defaultPcEnvironment;
 		}
 
 		if(langTag){
-			localStorage.setItem(config.appName + ":langTag", langTag);
-		}else if(localStorage.getItem(config.appName + ":langTag")){
-			langTag = localStorage.getItem(config.appName + ":langTag");
+			localStorage.setItem(appConfig.appName + ":langTag", langTag);
+		}else if(localStorage.getItem(appConfig.appName + ":langTag")){
+			langTag = localStorage.getItem(appConfig.appName + ":langTag");
 		} else {
-			langTag =  config.defaultLanguage;
+			langTag =  appConfig.defaultLanguage;
 		}
 
         if(pcEnv){
