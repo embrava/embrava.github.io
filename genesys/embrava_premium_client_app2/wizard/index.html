@@ -89,8 +89,7 @@
         import WizardApp from './scripts/wizard-app.js';
 		import config from './scripts/config.js';
 
-        // Initiate the App
-        let myApp = new WizardApp();
+        // Initiate the App        
         var queryString = window.location.search.substring(1);
         if (!queryString) {
             queryString = decodeURIComponent(window.location.hash);
@@ -110,7 +109,7 @@
                 pcEnv = currParam[1];
             }
         }
-		
+				
 		if(pcEnv){
 			localStorage.setItem(config.appName + ":environment", pcEnv);
 		}else if(localStorage.getItem(config.appName + ":environment")){
@@ -128,6 +127,9 @@
 		}
 		
         queryString = 'langTag=' + langTag + '&environment=' + pcEnv;
+		goToPage('../index', queryString);
+		
+		/*let myApp = new WizardApp();
         myApp.start()
             // Check Product Availability and display appropriate message
             .then(() => {
@@ -169,9 +171,8 @@
                     querystringOutput = decodeURIComponent(querystringOutput);
                     alert(querystringOutput);*/
                 }
-            })
-
-            .catch((e) => console.log(e));
+            }).catch((e) => console.log(e));
+			*/
     </script>
     <!-- <script src="./scripts/bubbles.js"></script> -->
 </body>
