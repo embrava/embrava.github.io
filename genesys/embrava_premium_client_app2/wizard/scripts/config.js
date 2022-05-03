@@ -1,6 +1,6 @@
 export default {
-    clientID: 'e93d91c6-481d-4238-835d-566c425aab46',
-    redirectUri: 'https://embrava.github.io/genesys/embrava_premium_client_app/wizard/index.html',	
+    clientID: '9e5c96b7-7adc-477f-8817-414811649e69',
+    redirectUri: 'https://embrava.github.io/genesys/embrava_premium_client_app2/wizard/index.html',	
 	appName: 'premium-app-embrava',
     
     //Permissions required for running the Wizard App
