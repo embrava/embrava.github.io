@@ -84,19 +84,39 @@ class WizardApp {
             queryString = decodeURIComponent(queryString);
         }
         const pairs = queryString.split('&');
-        let pcEnv = null;   
+		
+        var langTag = null;
+        var pcEnv = null;  
+		
         for (var i = 0; i < pairs.length; i++)
         {
             var currParam = pairs[i].split('=');
 
             if(currParam[0] === 'langTag') {
                 this.language = currParam[1];
+				        langTag = this.language;
             } else if(currParam[0] === 'pcEnvironment') {
                 pcEnv = currParam[1];
             } else if(currParam[0] === 'environment' && pcEnv === null) {
                 pcEnv = currParam[1];
             }
         }
+		
+    		if(pcEnv){
+    			localStorage.setItem(appConfig.appName + ":environment", pcEnv);
+    		}else if(localStorage.getItem(appConfig.appName + ":environment")){
+    			pcEnv = localStorage.getItem(appConfig.appName + ":environment");
+    		} else {
+    			pcEnv = appConfig.defaultPcEnvironment;
+    		}
+
+    		if(langTag){
+    			localStorage.setItem(appConfig.appName + ":langTag", langTag);
+    		}else if(localStorage.getItem(appConfig.appName + ":langTag")){
+    			langTag = localStorage.getItem(appConfig.appName + ":langTag");
+    		} else {
+    			langTag =  appConfig.defaultLanguage;
+    		}
 
         if(pcEnv){
             this.pcApp = new window.purecloud.apps.ClientApp({pcEnvironment: pcEnv});
@@ -127,16 +147,11 @@ class WizardApp {
      * @return {Promise}
      */
     _pureCloudAuthenticate() {
-
-
-        // Authenticate through PureCloud
+		
+		// Authenticate through PureCloud
         this.purecloudClient.setEnvironment(this.pcApp.pcEnvironment);
         this.environment = this.pcApp.pcEnvironment;
-        //var redirectUrl = this.redirectUri + "?environment=" + this.pcApp.pcEnvironment;
-        //this.redirectUri = redirectUrl;
-        return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment],
-            this.redirectUri, { state: ('&langTag=' + this.language + '&environment=' + this.pcApp.pcEnvironment)
-    });
+        return this.purecloudClient.loginImplicitGrant(appConfig.clientID, this.redirectUri, appConfig.appName);
     }
 
     /**

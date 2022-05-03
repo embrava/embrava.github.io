@@ -94,7 +94,7 @@ class WizardApp {
 
             if(currParam[0] === 'langTag') {
                 this.language = currParam[1];
-				langTag = this.language;
+				        langTag = this.language;
             } else if(currParam[0] === 'pcEnvironment') {
                 pcEnv = currParam[1];
             } else if(currParam[0] === 'environment' && pcEnv === null) {
@@ -102,21 +102,21 @@ class WizardApp {
             }
         }
 		
-		if(pcEnv){
-			localStorage.setItem(appConfig.appName + ":environment", pcEnv);
-		}else if(localStorage.getItem(appConfig.appName + ":environment")){
-			pcEnv = localStorage.getItem(appConfig.appName + ":environment");
-		} else {
-			pcEnv = appConfig.defaultPcEnvironment;
-		}
+    		if(pcEnv){
+    			localStorage.setItem(appConfig.appName + ":environment", pcEnv);
+    		}else if(localStorage.getItem(appConfig.appName + ":environment")){
+    			pcEnv = localStorage.getItem(appConfig.appName + ":environment");
+    		} else {
+    			pcEnv = appConfig.defaultPcEnvironment;
+    		}
 
-		if(langTag){
-			localStorage.setItem(appConfig.appName + ":langTag", langTag);
-		}else if(localStorage.getItem(appConfig.appName + ":langTag")){
-			langTag = localStorage.getItem(appConfig.appName + ":langTag");
-		} else {
-			langTag =  appConfig.defaultLanguage;
-		}
+    		if(langTag){
+    			localStorage.setItem(appConfig.appName + ":langTag", langTag);
+    		}else if(localStorage.getItem(appConfig.appName + ":langTag")){
+    			langTag = localStorage.getItem(appConfig.appName + ":langTag");
+    		} else {
+    			langTag =  appConfig.defaultLanguage;
+    		}
 
         if(pcEnv){
             this.pcApp = new window.purecloud.apps.ClientApp({pcEnvironment: pcEnv});

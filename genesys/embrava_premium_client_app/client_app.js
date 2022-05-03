@@ -1,15 +1,13 @@
 /* 
 *   NOTE: This sample uses ES6.
 */
-import clientIDs from './clientIDs.js';
+import config from './config.js';
 
 let clientApp = {};
 
 // PureCloud OAuth information
 const platformClient = require('platformClient');
 const client = platformClient.ApiClient.instance;
-// const redirectUri = "http://localhost:3000/";
-const redirectUri = "https://embrava.github.io/genesys/embrava_premium_client_app/";
 
 // API instances
 const usersApi = new platformClient.UsersApi();
@@ -58,14 +56,31 @@ function errorCallback1(data) {
 
 // Will Authenticate through PureCloud
 clientApp.setup = function(pcEnv, langTag, html){
-    let clientId = clientIDs[pcEnv];
-    clientApp.langTag = langTag;
+	if(pcEnv){
+        localStorage.setItem(config.appName + ":environment", pcEnv);
+    }else if(localStorage.getItem(config.appName + ":environment")){
+        pcEnv = localStorage.getItem(config.appName + ":environment");
+    } else {
+        pcEnv = config.defaultPcEnvironment;
+    }
 
+    if(langTag){
+        localStorage.setItem(config.appName + ":langTag", langTag);
+    }else if(localStorage.getItem(config.appName + ":langTag")){
+        langTag = localStorage.getItem(config.appName + ":langTag");
+    } else {
+        langTag =  config.defaultLanguage;
+    }
+	
+    let clientId = config.clientID;
+    clientApp.langTag = langTag;
+	  clientApp.pcEnv = pcEnv;
 
     // Authenticate via PureCloud
+	  client.setPersistSettings(true, config.appName);
     client.setEnvironment(pcEnv);
-    client.setPersistSettings(true);
-    client.loginImplicitGrant(clientId, redirectUri + html, { state: ('&langTag=' + langTag + '&environment=' + pcEnv) })
+	
+    client.loginImplicitGrant(clientId, config.basePath + html, config.appName)
     .then(data => {
         console.log(data);
         

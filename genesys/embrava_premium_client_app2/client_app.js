@@ -8,8 +8,6 @@ let clientApp = {};
 // PureCloud OAuth information
 const platformClient = require('platformClient');
 const client = platformClient.ApiClient.instance;
-// const redirectUri = "http://localhost:3000/";
-const redirectUri = "https://embrava.github.io/genesys/embrava_premium_client_app2/";
 
 // API instances
 const usersApi = new platformClient.UsersApi();
@@ -76,10 +74,10 @@ clientApp.setup = function(pcEnv, langTag, html){
 	
     let clientId = config.clientID;
     clientApp.langTag = langTag;
-	clientApp.pcEnv = pcEnv;
+	  clientApp.pcEnv = pcEnv;
 
     // Authenticate via PureCloud
-	client.setPersistSettings(true, config.appName);
+	  client.setPersistSettings(true, config.appName);
     client.setEnvironment(pcEnv);
 	
     client.loginImplicitGrant(clientId, config.basePath + html, config.appName)
