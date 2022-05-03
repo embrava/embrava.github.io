@@ -1,7 +1,7 @@
 /* 
 *   NOTE: This sample uses ES6.
 */
-import clientIDs from './clientIDs.js';
+import config from './config.js';
 
 let clientApp = {};
 
@@ -58,14 +58,14 @@ function errorCallback1(data) {
 
 // Will Authenticate through PureCloud
 clientApp.setup = function(pcEnv, langTag, html){
-    let clientId = clientIDs[pcEnv];
+    let clientId = config.clientID;
     clientApp.langTag = langTag;
 
 
     // Authenticate via PureCloud
     client.setEnvironment(pcEnv);
     client.setPersistSettings(true);
-    client.loginImplicitGrant(clientId, redirectUri + html, { state: ('&langTag=' + langTag + '&environment=' + pcEnv) })
+    client.loginImplicitGrant(clientId, config.basePath + html, config.appName)
     .then(data => {
         console.log(data);
         
