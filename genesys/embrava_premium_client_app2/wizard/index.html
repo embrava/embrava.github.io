@@ -97,8 +97,8 @@
             queryString = decodeURIComponent(queryString);
         }
         var pairs = queryString.split('&');
-        var pcEnv = '';
-        var langTag = '';
+        var pcEnv = null;
+        var langTag = null;
         for (var i = 0; i < pairs.length; i++) {
             var currParam = pairs[i].split('=');
 
