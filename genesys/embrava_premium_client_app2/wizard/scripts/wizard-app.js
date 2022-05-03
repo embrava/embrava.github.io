@@ -127,16 +127,11 @@ class WizardApp {
      * @return {Promise}
      */
     _pureCloudAuthenticate() {
-
-
-        // Authenticate through PureCloud
+		
+		// Authenticate through PureCloud
         this.purecloudClient.setEnvironment(this.pcApp.pcEnvironment);
         this.environment = this.pcApp.pcEnvironment;
-        //var redirectUrl = this.redirectUri + "?environment=" + this.pcApp.pcEnvironment;
-        //this.redirectUri = redirectUrl;
-        return this.purecloudClient.loginImplicitGrant(appConfig.clientIDs[this.pcApp.pcEnvironment],
-            this.redirectUri, { state: ('&langTag=' + this.language + '&environment=' + this.pcApp.pcEnvironment)
-    });
+        return this.purecloudClient.loginImplicitGrant(appConfig.clientID, this.redirectUri, appConfig.appName);
     }
 
     /**
