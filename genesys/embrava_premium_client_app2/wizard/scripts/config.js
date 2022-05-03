@@ -2,6 +2,9 @@ export default {
     clientID: '9e5c96b7-7adc-477f-8817-414811649e69',
     redirectUri: 'https://embrava.github.io/genesys/embrava_premium_client_app2/wizard/index.html',	
 	appName: 'premium-app-embrava',
+	
+	defaultPcEnvironment: 'mypurecloud.com',
+    defaultLanguage: 'en-us',
     
     //Permissions required for running the Wizard App
     setupPermissionsRequired: ['admin'],
