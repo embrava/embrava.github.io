@@ -46,6 +46,10 @@
 	var DEVICE_NAME_BLYNCLIGHT_MINI_30S = "Blynclight Mini (BLMINI30)";
     var DEVICE_NAME_BLYNCLIGHT_MINI_40S = "Blynclight Mini (BLMINI40)";
     var DEVICE_NAME_BLYNCLIGHT_MINI_41S = "Blynclight Mini (BLMINI41)";
+	var DEVICE_NAME_BLYNC_PLANTRONICS_STATUS_INDICATOR = "Poly Status Indicator (BLYNCUSB40S)";
+	/*var DEVICE_NAME_BLYNCLIGHT_MINI_40S_V20 = "Blynclight Mini (BLMINI40_V20)";	
+	var DEVICE_NAME_BLYNCLIGHT_STANDARD_40_V20 = "Blynclight Standard (BLYNCUSB40_V20)";
+	var DEVICE_NAME_BLYNCLIGHT_PLUS_40S_v20 = "Blynclight Plus (BLYNCUSB40S_V20)";*/
 
 	let finalDevices = []; 	// has properties 'deviceName' a string value and 'device' an USB device object;                
 	let selectedDeviceInfo; // USB device object
@@ -141,7 +145,7 @@
 	    deviceName = finalDevices[ui.deviceSelector.selectedIndex].deviceName;
 	    selectedDeviceInfo = finalDevices[ui.deviceSelector.selectedIndex];
 
-	    if (deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
+	    if (deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || deviceName == DEVICE_NAME_BLYNC_PLANTRONICS_STATUS_INDICATOR ||
             deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||  
             deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
 				
@@ -149,7 +153,7 @@
 	        enableIOControlsForMusicForBlyncUSB30S_Devices(true);
 
 	        // Update music list combobox items based on the device type
-	        if (deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S) {
+	        if (deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || deviceName == DEVICE_NAME_BLYNC_PLANTRONICS_STATUS_INDICATOR) {
 	            clearMusicList();
 	            addMusicList1();
 	        } else {
@@ -207,9 +211,9 @@
 	var onFlashSpeedSelectionChanged = async function() {
 	    bySelectedFlashSpeed = ui.flashSpeedSelector.selectedIndex + 1;
 	    if (deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_30 || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_STANDARD_40 || 
-            deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S ||
-            deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S ||
-            deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
+            deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || deviceName == DEVICE_NAME_BLYNC_PLANTRONICS_STATUS_INDICATOR || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || 
+			deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_EMBRAVA_EMBEDDED || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || 
+			deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S) {
 	        await SelectLightFlashSpeed(selectedDeviceInfo, bySelectedFlashSpeed);
 	    }
 	};
@@ -241,7 +245,7 @@
 	    bySelectedMusic = ui.musicSelector.selectedIndex + 1;
 	    if (deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
             deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || 
-            deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
+            deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || deviceName == DEVICE_NAME_BLYNC_PLANTRONICS_STATUS_INDICATOR) {
 	        if (ui.playMusic.checked == true) {
 	            await StopMusicPlay(selectedDeviceInfo);
 	            await SelectMusicToPlay(selectedDeviceInfo, bySelectedMusic);
@@ -261,7 +265,7 @@
 	    bySelectedMusic = ui.musicSelector.selectedIndex + 1;
 	    if (deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_PLUS_40S || 
             deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_40S || deviceName == DEVICE_NAME_BLYNCLIGHT_MINI_41S || 
-            deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S) {
+            deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_30S || deviceName == DEVICE_NAME_BLYNCLIGHT_WIRELESS_40S || deviceName == DEVICE_NAME_BLYNC_PLANTRONICS_STATUS_INDICATOR) {
 	        if (ui.playMusic.checked == true) {
 	            await StopMusicPlay(selectedDeviceInfo);
 	            await SelectMusicToPlay(selectedDeviceInfo, bySelectedMusic);
