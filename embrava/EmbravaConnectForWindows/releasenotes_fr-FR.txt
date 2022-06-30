@@ -1,1 +1,2 @@
-1. Correction du problème de synchronisation RingCentral.
+1. Paramètres de configuration contrôlés par l'administrateur ajoutés pour les connexions Genesys PureCloud et PureCloud Premium
+2. Correctifs de stabilité ajoutés à l'intégration Microsoft Teams et Genesys PureCloud Premium
