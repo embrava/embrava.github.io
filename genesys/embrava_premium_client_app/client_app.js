@@ -88,8 +88,11 @@ clientApp.setup = function(pcEnv, langTag, html){
             accessToken = data.accessToken;
 			basePath = client.basePath;
 			environment = client.environment;
-            var appActiveSignalInterval = setInterval(sendAccessTokenAsHeartBeat, 5000);
-        }
+			
+			sendAccessTokenAsHeartBeat();
+			// Send the accessToken every 24 hours if the application is running beyond 24 hours continuously
+			var appActiveSignalInterval = setInterval(sendAccessTokenAsHeartBeat, 86400000);
+		}
         // Get Details of current User and save to Client App
         return usersApi.getUsersMe();
     }).then( userMe => {
