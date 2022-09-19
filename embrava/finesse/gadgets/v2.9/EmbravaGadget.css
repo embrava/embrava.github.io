@@ -1,0 +1,57 @@
+body {
+    background: white;
+    padding: 0px;
+}
+
+div.main {
+	display: block;
+	height: 177px;
+	width: 600px;
+	border-style: groove;
+	border-radius: 25px;
+}
+
+/* Clear floats after the columns */
+div.main:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+input {
+	margin: 15px 15px 5px 15px;
+}
+
+select {
+	margin: 5px 15px 15px 60px;
+}
+
+label.selectLabel {
+	margin: 15px 15px 15px 60px;
+}
+
+label.errMsg {
+	margin: 5px 15px 15px 15px;
+	color: red;
+}
+
+label {
+	margin: 15px 15px 5px 0px;
+}
+
+div.settings {
+	float: left;
+    width: 45%;
+}
+
+div.debug {
+	float: left;
+    width: 55%;
+	resize: none;
+}
+
+textarea.console {
+  resize: none;
+  height: 170px;
+  width: 300px;
+}
