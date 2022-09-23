@@ -19,10 +19,10 @@
 				<link rel="stylesheet" href="EmbravaGadget.css" type="text/css" />
 
 				<!-- Finesse jQuery -->
-				<script type="text/javascript" src="/desktop/assets/js/jquery.min.js"></script>
+				<script type="text/javascript" src="jquery.min.js"></script>
 						   
 				<!-- Finesse Library -->
-				<script type="text/javascript" src="/desktop/assets/js/finesse.js"></script>
+				<script type="text/javascript" src="finesse.js"></script>
 
 				<!-- Gadget Business Logic -->
 				<script type="text/javascript" src="Config.js"></script>
