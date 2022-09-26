@@ -1,6 +1,6 @@
 {
-	"version": "4.2.9",
-	"packageName": "EmbravaConnectForMac_v4.2.9.pkg",
+	"version": "4.2.2",
+	"packageName": "EmbravaConnectForMac_v4.2.2.pkg",
 	"releaseNotes": "<!DOCTYPE html><html><body><ul><li>Fixed IVES integration</li><li>Updated light colors</li><li>Fixed other bugs</li></ul></body></html>",
 	"profile": {
 		"name": "embrava connect"
