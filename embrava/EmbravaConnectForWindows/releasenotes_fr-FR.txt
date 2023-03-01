@@ -1,2 +1,3 @@
-1. Paramètres de configuration contrôlés par l'administrateur ajoutés pour les connexions Genesys PureCloud et PureCloud Premium
-2. Correctifs de stabilité ajoutés à l'intégration Microsoft Teams et Genesys PureCloud Premium
+1. Alerte d'appel entrant et de messagerie instantanée entrante pour MS Teams.
+2. Afficher les événements de présence sur Embrava Desk Sign.
+3. Correction d'un bug pour l'alerte En réunion dans Zoom.
