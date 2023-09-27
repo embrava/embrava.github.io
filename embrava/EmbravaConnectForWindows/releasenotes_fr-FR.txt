@@ -1,3 +1,4 @@
-1. Alerte d'appel entrant et de messagerie instantanée entrante pour MS Teams.
-2. Afficher les événements de présence sur Embrava Desk Sign.
-3. Correction d'un bug pour l'alerte En réunion dans Zoom.
+1. Prise en charge de la nouvelle version de MS Teams. Correction d'un bug d'appel entrant.
+2.Intégration optimisée avec Genesys Cloud.
+3.Nouvelle fonctionnalité d'activité « Occupé » pour Zoom.
+4. Correction d'un bug qui effaçait la configuration de Blynclight lors de l'amarrage.
