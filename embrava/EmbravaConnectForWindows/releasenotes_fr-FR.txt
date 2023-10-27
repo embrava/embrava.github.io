@@ -1,4 +1,2 @@
-1. Prise en charge de la nouvelle version de MS Teams. Correction d'un bug d'appel entrant.
-2.Intégration optimisée avec Genesys Cloud.
-3.Nouvelle fonctionnalité d'activité « Occupé » pour Zoom.
-4. Correction d'un bug qui effaçait la configuration de Blynclight lors de l'amarrage.
+1. Stabilité améliorée pour l’intégration de RingCentral.
+2. Intégration de RingCentral en transition pour utiliser WebSockets, s'éloignant du service PubNub désormais obsolète pour les abonnements de présence.
