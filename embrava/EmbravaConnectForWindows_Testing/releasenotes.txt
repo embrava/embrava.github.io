@@ -1,0 +1,4 @@
+1.Support for New MS Teams release. Fixed incoming call bug.
+2.Optimized integration with Genesys Cloud.
+3.New 'Busy' activity feature for Zoom.
+4.Fixed bug that cleared Blynclight config when docking.
