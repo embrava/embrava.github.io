@@ -1,10 +1,2 @@
-1. Enhanced stability for RingCentral integration.
-2. Transitioned RingCentral integration to utilize WebSockets, moving away from the now-deprecated PubNub service for presence subscriptions.
-
-Note:
-
-If you are using Embrava Connect version 5.2.99, there is a known issue where clicking the "Install Update" button in this dialog does not download and install the update version but displays an exception instead. This issue has been fixed in the update version 5.3.0. Therefore, please manually download Embrava Connect version 5.3.0 from any of the following links on a browser (select the link using mouse left button and click Ctrl + C will copy the link):
-
-https://bit.ly/3S95gmI
-https://embrava.github.io/embrava/EmbravaConnectForWindows/EmbravaConnect_v5.3.0.zip
-
+1. Improved detection of incoming calls and instant messages for Microsoft Teams.
+2. Fixed bug with update download and installation.
