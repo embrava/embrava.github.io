@@ -1,2 +1,1 @@
-1. Improved detection of incoming calls and instant messages for Microsoft Teams.
-2. Fixed bug with update download and installation.
+1. Stability Fixes added to the Microsoft Teams client and server side integrations.
