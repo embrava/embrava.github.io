@@ -1,1 +1,1 @@
-1. Stability Fixes added to the Microsoft Teams client and server side integrations.
+1. Fix to support incoming Call and IM change in Microsoft Teams.

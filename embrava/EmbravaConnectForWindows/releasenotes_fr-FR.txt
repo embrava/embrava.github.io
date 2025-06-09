@@ -1,1 +1,1 @@
-1. Correctifs de stabilité ajoutés aux intégrations côté client et serveur de Microsoft Teams.
+1. Correction pour prendre en charge la détection des appels entrants et des messages instantanés dans Microsoft Teams.
