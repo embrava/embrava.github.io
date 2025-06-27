@@ -1,1 +1,4 @@
-1. Fix to support incoming Call and IM change in Microsoft Teams.
+1. Resolution for the issue of incoming call alerts not working following a recent Teams update.
+2. Missed call and missed IM alerts.
+3. Configurable duration for the IM alert.
+4. Enhanced authentication mechanism for the Microsoft Teams (server-side) connection.
