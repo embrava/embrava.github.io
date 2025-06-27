@@ -1,5 +1,5 @@
 {
-	"version": "4.2.12",
+	"version": "4.2.9",
 	"packageName": "EmbravaConnectForMac_v4.2.12.pkg",
 	"releaseNotes": "<!DOCTYPE html><html><body><ul><li>Enhanced authentication mechanism for the Microsoft Teams connection</li><li>Slack support added</li></ul></body></html>",
 	"profile": {
