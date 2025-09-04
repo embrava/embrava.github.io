@@ -1,1 +1,3 @@
-1. Correction pour prendre en charge la détection des appels entrants et des messages instantanés dans Microsoft Teams.
+1. Les paramètres de configuration contrôlés par l’administrateur sont ajoutés à la ruche de registre **HKLM** (pour les connexions prises en charge).
+2. Ajout de correctifs de stabilité.
+

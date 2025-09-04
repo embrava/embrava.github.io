@@ -1,4 +1,2 @@
-1. Resolution for the issue of incoming call alerts not working following a recent Teams update.
-2. Missed call and missed IM alerts.
-3. Configurable duration for the IM alert.
-4. Enhanced authentication mechanism for the Microsoft Teams (server-side) connection.
+1. Admin controlled configuration settings are added to HKLM registry hive (for the supported connections)
+2. Added stability fixes
