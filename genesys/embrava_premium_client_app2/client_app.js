@@ -21,7 +21,7 @@ var basePath = null;
 var environment = null;
 var querystring = null;
 
-clientApp.checkForEmbravaConnect = function (querystringarg) {
+/*clientApp.checkForEmbravaConnect = function (querystringarg) {
     querystring = querystringarg;
     var requestParams1 = new Object();
     requestParams1.parameter1_Type = "CheckForECPresence";
@@ -39,6 +39,22 @@ clientApp.checkForEmbravaConnect = function (querystringarg) {
     } catch (e) {
         console.log("Exception:" + e);
     }
+};*/
+
+clientApp.checkForEmbravaConnect = function () {
+    fetch("http://localhost:9053", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            parameter1_Type: "CheckForECPresence",
+            parameter1: "CheckForECPresence"
+        })
+    })
+    .then(r => r.json())
+    .then(successCallback1)
+    .catch(errorCallback1);
 };
 
 function successCallback1(data) {
