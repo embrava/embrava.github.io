@@ -42,7 +42,7 @@ var querystring = null;
 };*/
 
 clientApp.checkForEmbravaConnect = function () {
-    fetch("http://localhost:9053", {
+    fetch("https://localhost:9053", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
