@@ -124,12 +124,12 @@ clientApp.onSocketMessage = function(event){
 };
 
 window.onbeforeunload = function () {		
-    
+    closeSession();
     return;
 }; 
 
 window.onunload = function () {
-    
+    closeSession();
     return;
 };
 	
@@ -162,6 +162,20 @@ function sendAccessTokenAsHeartBeat() {
             dataType: "jsonp"
         });
     }
+};
+
+function closeSession() {
+	console.log("closeSession");
+    
+	requestParams.parameter1_Type = "CloseSession";
+	requestParams.parameter1 = "close";
+	
+	$.ajax({
+		type: "GET",
+		data: JSON.stringify(requestParams),
+		url: "http://localhost:9052",
+		dataType: "jsonp"
+	});    
 };
 
 export default clientApp
