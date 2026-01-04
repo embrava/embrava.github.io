@@ -44,6 +44,7 @@ var querystring = null;
 clientApp.checkForEmbravaConnect = function () {
     fetch("https://localhost:9053", {
         method: "POST",
+        mode: "cors",              // force CORS mode
         headers: {
             "Content-Type": "application/json"
         },
