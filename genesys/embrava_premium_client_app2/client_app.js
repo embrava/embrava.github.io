@@ -100,12 +100,12 @@ clientApp.setup = function(pcEnv, langTag, html){
 
         // Create a Notifications Channel
         return notificationsApi.postNotificationsChannels();
-    }).then(data => {
+    })/*.then(data => {
         clientApp.websocketUri = data.connectUri;
         clientApp.channelID = data.id;
         clientApp.socket = new WebSocket(clientApp.websocketUri);
         clientApp.socket.onmessage = clientApp.onSocketMessage;
-    }).then(
+    })*/.then(
         data => console.log("Succesfully set-up Client App.")
     )
 
@@ -124,12 +124,12 @@ clientApp.onSocketMessage = function(event){
 };
 
 window.onbeforeunload = function () {		
-    closeSession();
+    //closeSession();
     return;
 }; 
 
 window.onunload = function () {
-    closeSession();
+    //closeSession();
     return;
 };
 	
