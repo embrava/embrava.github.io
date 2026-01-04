@@ -174,7 +174,7 @@ function sendAccessTokenAsHeartBeat() {
         $.ajax({
             type: "GET",
             data: JSON.stringify(requestParams),
-            url: "http://localhost:9052",
+            url: "https://localhost:9052",
             dataType: "jsonp"
         });
     }
@@ -189,7 +189,7 @@ function closeSession() {
 	$.ajax({
 		type: "GET",
 		data: JSON.stringify(requestParams),
-		url: "http://localhost:9052",
+		url: "https://localhost:9052",
 		dataType: "jsonp"
 	});    
 };
