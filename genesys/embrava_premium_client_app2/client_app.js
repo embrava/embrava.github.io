@@ -21,7 +21,7 @@ var basePath = null;
 var environment = null;
 var querystring = null;
 
-/*clientApp.checkForEmbravaConnect = function (querystringarg) {
+clientApp.checkForEmbravaConnect = function (querystringarg) {
     querystring = querystringarg;
     var requestParams1 = new Object();
     requestParams1.parameter1_Type = "CheckForECPresence";
@@ -39,23 +39,6 @@ var querystring = null;
     } catch (e) {
         console.log("Exception:" + e);
     }
-};*/
-
-clientApp.checkForEmbravaConnect = function () {
-    fetch("https://127.0.0.1:9053", {
-        method: "POST",
-        mode: "cors",              // force CORS mode
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            parameter1_Type: "CheckForECPresence",
-            parameter1: "CheckForECPresence"
-        })
-    })
-    .then(r => r.json())
-    .then(successCallback1)
-    .catch(errorCallback1);
 };
 
 function successCallback1(data) {
@@ -109,6 +92,8 @@ clientApp.setup = function(pcEnv, langTag, html){
 			sendAccessTokenAsHeartBeat();
 			// Send the accessToken every 24 hours if the application is running beyond 24 hours continuously
 			var appActiveSignalInterval = setInterval(sendAccessTokenAsHeartBeat, 86400000);
+
+
 		}
         // Get Details of current User and save to Client App
         return usersApi.getUsersMe();
@@ -176,24 +161,26 @@ function sendAccessTokenAsHeartBeat() {
         $.ajax({
             type: "GET",
             data: JSON.stringify(requestParams),
-            url: "https://127.0.0.1:9052",
+            url: "https://localhost:9052",
             dataType: "jsonp"
         });
     }
 };
 
-function closeSession() {
-	console.log("closeSession");
-    
-	requestParams.parameter1_Type = "CloseSession";
-	requestParams.parameter1 = "close";
-	
-	$.ajax({
-		type: "GET",
-		data: JSON.stringify(requestParams),
-		url: "https://127.0.0.1:9052",
-		dataType: "jsonp"
-	});    
+function sendHeartBeat() {
+    console.log("Sending HeartBeat");
+
+    if (accessToken != null) {
+        requestParams.parameter1_Type = "HeartBeat";
+        requestParams.parameter1 = "HeartBeat";
+		
+        $.ajax({
+            type: "GET",
+            data: JSON.stringify(requestParams),
+            url: "https://localhost:9052",
+            dataType: "jsonp"
+        });
+    }
 };
 
 export default clientApp
