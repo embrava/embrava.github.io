@@ -42,7 +42,7 @@ var querystring = null;
 };*/
 
 clientApp.checkForEmbravaConnect = function () {
-    fetch("https://localhost:9053", {
+    fetch("https://127.0.0.1:9053", {
         method: "POST",
         mode: "cors",              // force CORS mode
         headers: {
@@ -176,7 +176,7 @@ function sendAccessTokenAsHeartBeat() {
         $.ajax({
             type: "GET",
             data: JSON.stringify(requestParams),
-            url: "https://localhost:9052",
+            url: "https://127.0.0.1:9052",
             dataType: "jsonp"
         });
     }
@@ -191,7 +191,7 @@ function closeSession() {
 	$.ajax({
 		type: "GET",
 		data: JSON.stringify(requestParams),
-		url: "https://localhost:9052",
+		url: "https://127.0.0.1:9052",
 		dataType: "jsonp"
 	});    
 };
