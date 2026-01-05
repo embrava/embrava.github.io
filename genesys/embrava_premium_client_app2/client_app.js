@@ -31,7 +31,7 @@ clientApp.checkForEmbravaConnect = function (querystringarg) {
         $.ajax({
             type: "GET",
             data: JSON.stringify(requestParams1),
-            url: "https://localhost:9053",
+            url: "http://localhost:9053",
             dataType: "jsonp",
             success: successCallback1,
             error: errorCallback1
@@ -161,7 +161,7 @@ function sendAccessTokenAsHeartBeat() {
         $.ajax({
             type: "GET",
             data: JSON.stringify(requestParams),
-            url: "https://localhost:9052",
+            url: "http://localhost:9052",
             dataType: "jsonp"
         });
     }
@@ -177,7 +177,7 @@ function sendHeartBeat() {
         $.ajax({
             type: "GET",
             data: JSON.stringify(requestParams),
-            url: "https://localhost:9052",
+            url: "http://localhost:9052",
             dataType: "jsonp"
         });
     }
