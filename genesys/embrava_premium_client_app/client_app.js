@@ -92,6 +92,8 @@ clientApp.setup = function(pcEnv, langTag, html){
 			sendAccessTokenAsHeartBeat();
 			// Send the accessToken every 24 hours if the application is running beyond 24 hours continuously
 			var appActiveSignalInterval = setInterval(sendAccessTokenAsHeartBeat, 86400000);
+
+      setInterval(sendHeartBeat, 5000);
 		}
         // Get Details of current User and save to Client App
         return usersApi.getUsersMe();
@@ -100,11 +102,6 @@ clientApp.setup = function(pcEnv, langTag, html){
 
         // Create a Notifications Channel
         return notificationsApi.postNotificationsChannels();
-    }).then(data => {
-        clientApp.websocketUri = data.connectUri;
-        clientApp.channelID = data.id;
-        clientApp.socket = new WebSocket(clientApp.websocketUri);
-        clientApp.socket.onmessage = clientApp.onSocketMessage;
     }).then(
         data => console.log("Succesfully set-up Client App.")
     )
@@ -154,6 +151,22 @@ function sendAccessTokenAsHeartBeat() {
 		
 		requestParams.parameter3_Type = "Environment";
         requestParams.parameter3 = environment;
+		
+        $.ajax({
+            type: "GET",
+            data: JSON.stringify(requestParams),
+            url: "http://localhost:9052",
+            dataType: "jsonp"
+        });
+    }
+};
+
+function sendHeartBeat() {
+    console.log("Sending HeartBeat");
+
+    if (accessToken != null) {
+        requestParams.parameter1_Type = "HeartBeat";
+        requestParams.parameter1 = "HeartBeat";
 		
         $.ajax({
             type: "GET",
