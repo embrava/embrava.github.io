@@ -1,0 +1,9 @@
+{
+  "required_network_configuration": [
+    {
+      "ip_cidr": "10.203.200.0/23",
+      "subnet_mask": "255.255.254.0",
+      "gateway_ip": "10.203.200.1"
+    }
+  ]
+}
