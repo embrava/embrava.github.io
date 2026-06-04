@@ -21,6 +21,8 @@ var basePath = null;
 var environment = null;
 var querystring = null;
 
+let socket = null;
+
 /*clientApp.checkForEmbravaConnect = function (querystringarg) {
     querystring = querystringarg;
     var requestParams1 = new Object();
