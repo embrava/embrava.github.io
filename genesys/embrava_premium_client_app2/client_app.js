@@ -21,7 +21,7 @@ var basePath = null;
 var environment = null;
 var querystring = null;
 
-clientApp.checkForEmbravaConnect = function (querystringarg) {
+/*clientApp.checkForEmbravaConnect = function (querystringarg) {
     querystring = querystringarg;
     var requestParams1 = new Object();
     requestParams1.parameter1_Type = "CheckForECPresence";
@@ -38,6 +38,40 @@ clientApp.checkForEmbravaConnect = function (querystringarg) {
         });
     } catch (e) {
         console.log("Exception:" + e);
+    }
+};*/
+
+clientApp.checkForEmbravaConnect = function (querystringarg) {
+    querystring = querystringarg;
+    try
+    {
+        socket = new WebSocket("ws://localhost:9053/");
+
+        socket.onopen = function()
+        {
+            console.log("Connected");
+        };
+
+        socket.onmessage = function(evt)
+        {
+            console.log(evt.data);
+        };
+
+        socket.onerror = function(evt)
+        {
+            console.log("WebSocket Error");
+            console.log(evt);
+        };
+
+        socket.onclose = function(evt)
+        {
+            console.log("Closed");
+            console.log(evt);
+        };
+    }
+    catch(ex)
+    {
+        console.log(ex);
     }
 };
 
