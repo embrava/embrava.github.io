@@ -21,8 +21,6 @@ var basePath = null;
 var environment = null;
 var querystring = null;
 
-let socket = null;
-
 /*clientApp.checkForEmbravaConnect = function (querystringarg) {
     querystring = querystringarg;
     var requestParams1 = new Object();
@@ -33,7 +31,7 @@ let socket = null;
         $.ajax({
             type: "GET",
             data: JSON.stringify(requestParams1),
-            url: "http://127.0.0.1:9053",
+            url: "http://localhost:9053",
             dataType: "jsonp",
             success: successCallback1,
             error: errorCallback1
@@ -42,40 +40,6 @@ let socket = null;
         console.log("Exception:" + e);
     }
 };*/
-
-clientApp.checkForEmbravaConnect = function (querystringarg) {
-    querystring = querystringarg;
-    try
-    {
-        socket = new WebSocket("ws://localhost:9053/");
-
-        socket.onopen = function()
-        {
-            console.log("Connected");
-        };
-
-        socket.onmessage = function(evt)
-        {
-            console.log(evt.data);
-        };
-
-        socket.onerror = function(evt)
-        {
-            console.log("WebSocket Error");
-            console.log(evt);
-        };
-
-        socket.onclose = function(evt)
-        {
-            console.log("Closed");
-            console.log(evt);
-        };
-    }
-    catch(ex)
-    {
-        console.log(ex);
-    }
-};
 
 function successCallback1(data) {
     console.log("successCallback1 data:" + data);
@@ -133,11 +97,6 @@ clientApp.setup = function(pcEnv, langTag, html){
 		}
         // Get Details of current User and save to Client App
         return usersApi.getUsersMe();
-    }).then( userMe => {
-        clientApp.userId = userMe.id;
-
-        // Create a Notifications Channel
-        return notificationsApi.postNotificationsChannels();
     }).then(
         data => console.log("Succesfully set-up Client App.")
     )
@@ -188,12 +147,10 @@ function sendAccessTokenAsHeartBeat() {
 		requestParams.parameter3_Type = "Environment";
         requestParams.parameter3 = environment;
 		
-        $.ajax({
-            type: "GET",
-            data: JSON.stringify(requestParams),
-            url: "http://127.0.0.1:9052",
-            dataType: "jsonp"
-        });
+        var szParams = JSON.stringify(requestParams);
+
+        setTimeout(function(){document.location.href = "ecauth:?genesyscloudprem_" + szParams}, 500);
+        
     }
 };
 
@@ -204,12 +161,9 @@ function sendHeartBeat() {
         requestParams.parameter1_Type = "HeartBeat";
         requestParams.parameter1 = "HeartBeat";
 		
-        $.ajax({
-            type: "GET",
-            data: JSON.stringify(requestParams),
-            url: "http://127.0.0.1:9052",
-            dataType: "jsonp"
-        });
+        var szParams = JSON.stringify(requestParams);
+
+        setTimeout(function(){document.location.href = "ecauth:?genesyscloudprem_" + szParams}, 500);
     }
 };
 
