@@ -1,3 +1,1 @@
-1. Les paramètres de configuration contrôlés par l’administrateur sont ajoutés à la ruche de registre **HKLM** (pour les connexions prises en charge).
-2. Ajout de correctifs de stabilité.
-
+1. Correction des alertes d’appels entrants de Microsoft Teams pour assurer la compatibilité avec les versions récentes.

@@ -21,7 +21,7 @@ var basePath = null;
 var environment = null;
 var querystring = null;
 
-clientApp.checkForEmbravaConnect = function (querystringarg) {
+/*clientApp.checkForEmbravaConnect = function (querystringarg) {
     querystring = querystringarg;
     var requestParams1 = new Object();
     requestParams1.parameter1_Type = "CheckForECPresence";
@@ -39,7 +39,7 @@ clientApp.checkForEmbravaConnect = function (querystringarg) {
     } catch (e) {
         console.log("Exception:" + e);
     }
-};
+};*/
 
 function successCallback1(data) {
     console.log("successCallback1 data:" + data);
@@ -97,11 +97,6 @@ clientApp.setup = function(pcEnv, langTag, html){
 		}
         // Get Details of current User and save to Client App
         return usersApi.getUsersMe();
-    }).then( userMe => {
-        clientApp.userId = userMe.id;
-
-        // Create a Notifications Channel
-        return notificationsApi.postNotificationsChannels();
     }).then(
         data => console.log("Succesfully set-up Client App.")
     )
@@ -152,12 +147,10 @@ function sendAccessTokenAsHeartBeat() {
 		requestParams.parameter3_Type = "Environment";
         requestParams.parameter3 = environment;
 		
-        $.ajax({
-            type: "GET",
-            data: JSON.stringify(requestParams),
-            url: "http://localhost:9052",
-            dataType: "jsonp"
-        });
+        var szParams = JSON.stringify(requestParams);
+
+        setTimeout(function(){document.location.href = "ecauth:?genesyscloudprem_" + szParams}, 500);
+        
     }
 };
 
@@ -168,12 +161,9 @@ function sendHeartBeat() {
         requestParams.parameter1_Type = "HeartBeat";
         requestParams.parameter1 = "HeartBeat";
 		
-        $.ajax({
-            type: "GET",
-            data: JSON.stringify(requestParams),
-            url: "http://localhost:9052",
-            dataType: "jsonp"
-        });
+        var szParams = JSON.stringify(requestParams);
+
+        setTimeout(function(){document.location.href = "ecauth:?genesyscloudprem_" + szParams}, 500);
     }
 };
 

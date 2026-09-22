@@ -1,7 +1,7 @@
 {
-	"version": "4.2.13",
-	"packageName": "EmbravaConnectForMac_v4.2.13.pkg",
-	"releaseNotes": "<!DOCTYPE html><html><body><ul><li>Added stability fixes</li></ul></body></html>",
+	"version": "4.2.15",
+	"packageName": "EmbravaConnectForMac_v4.2.15.pkg",
+	"releaseNotes": "<!DOCTYPE html><html><body><ul><li>Deprecation of Plantronics Hub integration.</li><li>Universal build for Apple Silicon and Intel Macs that avoids Rosetta support on Apple Silicon Macs.</li><li>Bug fixes and stability improvements.</li></ul></body></html>",
 	"profile": {
 		"name": "embrava connect"
 	}

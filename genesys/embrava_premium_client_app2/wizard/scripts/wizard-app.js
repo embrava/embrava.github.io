@@ -64,7 +64,7 @@ class WizardApp {
             "appInstances": [
                 {
                     "name": "Application",
-                    "url": "https://embrava.github.io/genesys/embrava_premium_client_app2/index.html?lang={{pcLangTag}}&environment={{pcEnvironment}}",
+                    "url": "https://embrava.github.io/genesys/embrava_premium_client_app/index.html?lang={{pcLangTag}}&environment={{pcEnvironment}}",
                     "type": "standalone",
                     "groups": ["Agents"]
                 }

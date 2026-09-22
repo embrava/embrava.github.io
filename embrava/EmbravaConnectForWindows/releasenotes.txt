@@ -1,2 +1,1 @@
-1. Admin controlled configuration settings are added to HKLM registry hive (for the supported connections)
-2. Added stability fixes
+1. Fixed Microsoft Teams Incoming Call alerts by updating UI Automation handling for compatibility with recent Teams versions.
